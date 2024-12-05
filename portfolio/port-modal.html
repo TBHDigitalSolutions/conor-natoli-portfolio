@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Profile Cards</title>
+
+    <!-- Content-Security-Policy -->
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' 'unsafe-inline' https://apis.google.com;
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+        font-src 'self' https://fonts.gstatic.com;
+        img-src 'self' https://tbhdigitalsolutions.com https://storage.googleapis.com;
+        media-src 'self' https://storage.googleapis.com;
+        connect-src 'self' https://apis.google.com;
+        frame-src 'self' https://www.youtube.com https://player.vimeo.com;
+    " />
+
+    <!-- jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Slick CSS and JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #07080D;
+            color: #f4f6f7;
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            color: #0EAFFB;
+            margin-bottom: 10px;
+        }
+
+        /* Portfolio Section Styles */
+        .portfolio-section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .portfolio-cards-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .portfolio-card {
+            background-color: #1A1B23;
+            color: #f4f6f7;
+            border-radius: 10px;
+            padding: 20px;
+            width: 33%;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .portfolio-card button {
+            background-color: #0EAFFB;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .portfolio-card button:hover {
+            background-color: #0c93d9;
+        }
+
+        /* Accordion Content (Hidden by Default) */
+        .accordion-content {
+            display: none; /* Starts hidden */
+            margin-top: 20px;
+            padding: 10px 10px;
+            background-color: #1A1B23;
+            border-radius: 8px;
+            overflow: scroll; /* Hide overflow from children elements */
+        }
+
+        /* Carousel Styles */
+        .carousel-slide {
+            display: flex;
+            gap: 10px;
+            padding: 10px;
+            background-color: #1A1B23;
+            border-radius: 8px;
+            max-width: 100%; /* Ensure it doesn’t exceed the container */
+            overflow: reveal; /* Hide overflow from slides */
+            max-width: 700px; /* Set desired maximum width for the carousel */
+            margin: 0 auto; /* Center carousel within its container */
+        }
+
+        .portfolio-item {
+            background-color: #1A1B23;
+            color: #f4f6f7;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+            padding: 7px;
+            cursor: pointer;
+        }
+
+        .portfolio-thumbnail {
+            width: 150px;      /* Set the width you want for each thumbnail */
+            height: 120px;     /* Set the height you want for each thumbnail */
+            object-fit: cover; /* Crop the image to fill the set dimensions, preserving aspect ratio */
+            border-radius: 8px; /* Optional: Rounded corners for the thumbnails */
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .modal-content {
+            background-color: #88888896;
+            border-radius: 8px;
+            padding: 20px;
+            max-width: 800px;
+            width: 90%;
+            color: #f4f6f7;
+            position: relative;
+        }
+
+        .modal-image {
+            max-width: 80%;
+            max-height: 80vh;
+            width: auto;
+            height: auto;
+            border-radius: 8px;
+            object-fit: contain; /* Keeps the image contained within the boundaries, maintaining aspect ratio */
+        }
+
+        /* Close Button Styles */
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+            color: #f4f6f7;
+            cursor: pointer;
+        }
+
+        .close-button:hover {
+            color: #b80e0e;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="portfolio" class="portfolio-section">
+        <h2>Portfolio</h2>
+        <div class="portfolio-cards-container">
+            <div class="portfolio-card">
+                <h3>Video Portfolio</h3>
+                <p>Engaging video content to elevate brand stories.</p>
+                <button onclick="toggleAccordion('video-portfolio')">View Example</button>
+            </div>
+            <div class="portfolio-card">
+                <h3>Image Portfolio</h3>
+                <p>Showcasing expertise in visual design and branding.</p>
+                <button onclick="toggleAccordion('image-portfolio')">View Example</button>
+            </div>
+            <div class="portfolio-card">
+                <h3>Web Development Portfolio</h3>
+                <p>Interactive, user-centric web experiences.</p>
+                <button onclick="toggleAccordion('web-portfolio')">View Example</button>
+            </div>
+        </div>
+
+        <!-- Video Carousel with Thumbnails -->
+        <div id="video-portfolio" class="accordion-content">
+            <!-- Main Video Carousel -->
+            <div class="carousel-slide video-carousel">
+                <div class="portfolio-item" onclick="openVideoModal('https://storage.googleapis.com/tbh-digital-solutions-content/step3/videos/step_3_crm-1-video/TBH%20Custom%20CRM-1.mp4')">
+                    <img src="https://storage.googleapis.com/tbh-digital-solutions-content/step3/videos/step_3_crm-1-video/Email%20Automation.png" alt="Video 1" class="portfolio-thumbnail">
+                    <p>Custom Video 1</p>
+                </div>
+
+                <!-- Video Item 2 -->
+                <div class="portfolio-item"
+                    onclick="openVideoModal('https://storage.googleapis.com/tbh-digital-solutions-content/step3/videos/step_3_crm-2-video/TBH%20Custom%20CRM-2.mp4')">
+                    <img src="https://storage.googleapis.com/tbh-digital-solutions-content/step3/videos/step_3_crm-1-video/Email%20Automation.png"
+                        alt="Video 2" class="portfolio-thumbnail">
+                    <p>Custom Video 2</p>
+                </div>
+
+                <!-- Video Item 3 -->
+                <div class="portfolio-item"
+                    onclick="openVideoModal('https://storage.googleapis.com/tbh-digital-solutions-content/step3/videos/step_3_crm-3-video/TBH%20Custom%20CRM-3.mp4')">
+                    <img src="https://storage.googleapis.com/tbh-digital-solutions-content/step3/videos/step_3_crm-3-video/Smart%20Contact%20List.png"
+                        alt="Video 3" class="portfolio-thumbnail">
+                    <p>Custom Video 3</p>
+                </div>
+
+                <!-- Video Item 4 -->
+                <div class="portfolio-item"
+                    onclick="openVideoModal('https://storage.googleapis.com/tbh-digital-solutions-content/step3/videos/step_3_crm-4-video/TBH%20Custom%20CRM-4.mp4')">
+                    <img src="https://storage.googleapis.com/tbh-digital-solutions-content/step3/videos/step_3_crm-4-video/Marketing%20Reports.png"
+                        alt="Video 4" class="portfolio-thumbnail">
+                    <p>Custom Video 4</p>
+                </div>
+
+                <!-- Video Item 5 -->
+                <div class="portfolio-item"
+                    onclick="openVideoModal('https://storage.googleapis.com/tbh-digital-solutions-content/step3/videos/step_3_crm-5-video/TBH%20Custom%20CRM-5.mp4')">
+                    <img src="https://storage.googleapis.com/tbh-digital-solutions-content/step3/videos/step_3_crm-5-video/A%20and%20B%20Split%20Testing.png"
+                        alt="Video 5" class="portfolio-thumbnail">
+                    <p>Custom Video 5</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Image Carousel -->
+        <div id="image-portfolio" class="accordion-content">
+            <div class="carousel-slide image-carousel">
+                <div class="portfolio-item" onclick="openImageModal('https://storage.googleapis.com/tbh-digital-solutions-content/step4/images/step_4_image_1/tabletCadSM.jpg')">
+                    <img src="https://storage.googleapis.com/tbh-digital-solutions-content/step4/images/step_4_image_1/tabletCadSM.jpg" alt="Image 1" class="portfolio-thumbnail">
+                    <p>Custom Image 1</p>
+                </div>
+
+                <!-- Image Item 2 -->
+                <div class="portfolio-item"
+                    onclick="openImageModal('https://storage.googleapis.com/tbh-digital-solutions-content/step4/images/step_4_image_2/b7-01.jpg')">
+                    <img src="https://storage.googleapis.com/tbh-digital-solutions-content/step4/images/step_4_image_2/b7-01.jpg"
+                        alt="B7-01" class="portfolio-thumbnail">
+                    <p>B7-01</p>
+                </div>
+
+                <!-- Image Item 3 -->
+                <div class="portfolio-item"
+                    onclick="openImageModal('https://storage.googleapis.com/tbh-digital-solutions-content/step4/images/step_4_image_3/1%20Natoli%20Knows%20Sgments%20-%20Black-01.PNG')">
+                    <img src="https://storage.googleapis.com/tbh-digital-solutions-content/step4/images/step_4_image_3/1%20Natoli%20Knows%20Sgments%20-%20Black-01.PNG"
+                        alt="Natoli Knows Segments" class="portfolio-thumbnail">
+                    <p>Natoli Knows Segments</p>
+                </div>
+
+                <!-- Image Item 4 -->
+                <div class="portfolio-item"
+                    onclick="openImageModal('https://storage.googleapis.com/tbh-digital-solutions-content/step4/images/step_4_image_4/Examples-1-02.png')">
+                    <img src="https://storage.googleapis.com/tbh-digital-solutions-content/step4/images/step_4_image_4/Examples-1-02.png"
+                        alt="Examples 1-02" class="portfolio-thumbnail">
+                    <p>Examples 1-02</p>
+                </div>
+
+                <!-- Image Item 5 -->
+                <div class="portfolio-item"
+                    onclick="openImageModal('https://storage.googleapis.com/tbh-digital-solutions-content/step4/images/step_4_image_5/Examples-1-01.png')">
+                    <img src="https://storage.googleapis.com/tbh-digital-solutions-content/step4/images/step_4_image_5/Examples-1-01.png"
+                        alt="Examples 1-01" class="portfolio-thumbnail">
+                    <p>Examples 1-01</p>
+                </div>
+
+                <!-- Image Item 6 -->
+                <div class="portfolio-item"
+                    onclick="openImageModal('https://storage.googleapis.com/tbh-digital-solutions-content/step4/images/step_4_image_6/text%20message%20image-1.png')">
+                    <img src="https://storage.googleapis.com/tbh-digital-solutions-content/step4/images/step_4_image_6/text%20message%20image-1.png"
+                        alt="Text Message Image" class="portfolio-thumbnail">
+                    <p>Text Message Image</p>
+                </div>
+
+                <!-- Image Item 7 -->
+                <div class="portfolio-item"
+                    onclick="openImageModal('https://storage.googleapis.com/tbh-digital-solutions-content/step4/images/step_4_image_7/1-7455%20Veterans%20Memorial%20Parkway,%20St%20Peters,%20MO%2063376.png')">
+                    <img src="https://storage.googleapis.com/tbh-digital-solutions-content/step4/images/step_4_image_7/1-7455%20Veterans%20Memorial%20Parkway,%20St%20Peters,%20MO%2063376.png"
+                        alt="Veterans Memorial Parkway 1" class="portfolio-thumbnail">
+                    <p>Veterans Memorial Parkway 1</p>
+                </div>
+
+                <!-- Image Item 8 -->
+                <div class="portfolio-item"
+                    onclick="openImageModal('https://storage.googleapis.com/tbh-digital-solutions-content/step4/images/step_4_image_8/2-7455%20Veterans%20Memorial%20Parkway,%20St%20Peters,%20MO%2063376.png')">
+                    <img src="https://storage.googleapis.com/tbh-digital-solutions-content/step4/images/step_4_image_8/2-7455%20Veterans%20Memorial%20Parkway,%20St%20Peters,%20MO%2063376.png"
+                        alt="Veterans Memorial Parkway 2" class="portfolio-thumbnail">
+                    <p>Veterans Memorial Parkway 2</p>
+                </div>
+
+                <!-- Image Item 9 -->
+                <div class="portfolio-item"
+                    onclick="openImageModal('https://storage.googleapis.com/tbh-digital-solutions-content/step4/images/step_4_image_9/7455%20Veterans%20Memorial%20Parkway,%20St%20Peters,%20MO%2063376.png')">
+                    <img src="https://storage.googleapis.com/tbh-digital-solutions-content/step4/images/step_4_image_9/7455%20Veterans%20Memorial%20Parkway,%20St%20Peters,%20MO%2063376.png"
+                        alt="Veterans Memorial Parkway" class="portfolio-thumbnail">
+                    <p>Veterans Memorial Parkway</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Accordion Content for Web Development Portfolio -->
+        <div id="web-portfolio" class="accordion-content">
+            <div class="carousel-slide iframe-carousel">
+                <!-- Iframe Item 1 -->
+                <div class="portfolio-item" onclick="openIframeModal('../../websiteexamplefolder/LandingPage1/index.html')">
+                    <img src="../../websiteexamplefolder/lp1.png" alt="Website 1" class="portfolio-thumbnail">
+                    <p>E-commerce Platform</p>
+                </div>
+
+                <!-- Iframe Item 2 -->
+                <div class="portfolio-item"
+                    onclick="openIframeModal('../../websiteexamplefolder/clinical-trial-form/index.html')">
+                    <img src="../../websiteexamplefolder/form.png" alt="Website 2" class="portfolio-thumbnail">
+                    <p>Corporate Website</p>
+                </div>
+
+                <!-- Iframe Item 3 -->
+                <div class="portfolio-item" onclick="openIframeModal('../../websiteexamplefolder/WebsiteExample1/home-2.html')">
+                    <img src="../../websiteexamplefolder/web1.png" alt="Website 3" class="portfolio-thumbnail">
+                    <p>Portfolio Showcase</p>
+                </div>
+
+                <!-- Iframe Item 4 -->
+                <div class="portfolio-item"
+                    onclick="openIframeModal('../../websiteexamplefolder/LandingPage3/startbootstrap-grayscale-master/dist/index.html')">
+                    <img src="../../websiteexamplefolder/lp3.png" alt="Website 4" class="portfolio-thumbnail">
+                    <p>Landing Page</p>
+                </div>
+
+                <!-- Iframe Item 5 -->
+                <div class="portfolio-item"
+                    onclick="openIframeModal('../../websiteexamplefolder/DashBoardExample/dist/index.html')">
+                    <img src="../../websiteexamplefolder/dash.png" alt="Website 5" class="portfolio-thumbnail">
+                    <p>Product Showcase</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Video Modal -->
+        <div id="video-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeVideoModal()">&times;</span>
+                <video id="modal-video" controls autoplay style="width: 100%; border-radius: 8px;">
+                    <source src="" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+
+        <!-- Image Modal -->
+        <div id="image-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeImageModal()">&times;</span>
+                <img id="modal-image" class="modal-image" src="" alt="Image Preview"
+                    style="width: 100%; height: auto; border-radius: 8px;">
+            </div>
+        </div>
+
+        <!-- Iframe Modal -->
+        <div id="iframe-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeIframeModal()">&times;</span>
+                <iframe id="modal-iframe" src="" frameborder="0"
+                    style="width: 100%; height: 80vh; border-radius: 8px;"></iframe>
+            </div>
+        </div>
+    <script>
+        $(document).ready(function () {
+                // Initialize Slick on each carousel-slide
+                $('.carousel-slide').slick({
+                    infinite: true,
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    autoplay: true,
+                    autoplaySpeed: 2000,
+                    dots: false,
+                    arrows: true
+                });
+            });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Attach event listeners to each "View Example" button
+            document.querySelector('.portfolio-cards-container .portfolio-card:nth-child(1) button').addEventListener('click', () => {
+                toggleAccordion('video-portfolio');
+            });
+
+            document.querySelector('.portfolio-cards-container .portfolio-card:nth-child(2) button').addEventListener('click', () => {
+                toggleAccordion('image-portfolio');
+            });
+
+            document.querySelector('.portfolio-cards-container .portfolio-card:nth-child(3) button').addEventListener('click', () => {
+                toggleAccordion('web-portfolio');
+            });
+        });
+
+        // Function to toggle the accordion for a given section
+        function toggleAccordion(sectionId) {
+            // Hide all other accordion sections
+            document.querySelectorAll('.accordion-content').forEach(section => {
+                if (section.id !== sectionId) {
+                    section.style.display = 'none';
+                }
+            });
+
+            // Toggle the display of the specified section
+            const section = document.getElementById(sectionId);
+            section.style.display = section.style.display === 'block' ? 'none' : 'block';
+
+            // Reposition the Slick carousel for smooth display
+            $(`#${sectionId} .carousel-slide`).slick('setPosition');
+        }
+
+        function openVideoModal(videoUrl) {
+            const modal = document.getElementById('video-modal');
+            const modalVideo = document.getElementById('modal-video');
+            modalVideo.src = videoUrl;
+            modal.style.display = 'flex';
+
+            // Add event listener for clicks outside the modal content
+            window.addEventListener('click', outsideVideoClickListener);
+        }
+
+        function closeVideoModal() {
+            const modal = document.getElementById('video-modal');
+            const modalVideo = document.getElementById('modal-video');
+            modal.style.display = 'none';
+            modalVideo.pause();
+            modalVideo.src = ''; // Clear source
+
+            // Remove the event listener when the modal is closed
+            window.removeEventListener('click', outsideVideoClickListener);
+        }
+
+        // Function to handle outside click detection for video modal
+        function outsideVideoClickListener(event) {
+            const modal = document.getElementById('video-modal');
+            const modalContent = modal.querySelector('.modal-content');
+
+            // Check if the click target is outside the modal content
+            if (event.target === modal && !modalContent.contains(event.target)) {
+                closeVideoModal();
+            }
+        }
+
+        function openImageModal(imageUrl) {
+            const modal = document.getElementById('image-modal');
+            const modalImage = document.getElementById('modal-image');
+            modalImage.src = imageUrl;
+            modal.style.display = 'flex';
+
+            // Add event listener for clicks outside the modal content
+            window.addEventListener('click', outsideImageClickListener);
+        }
+
+        function closeImageModal() {
+            const modal = document.getElementById('image-modal');
+            const modalImage = document.getElementById('modal-image');
+            modal.style.display = 'none';
+            modalImage.src = ''; // Clear source
+
+            // Remove the event listener when the modal is closed
+            window.removeEventListener('click', outsideImageClickListener);
+        }
+
+        // Function to handle outside click detection for image modal
+        function outsideImageClickListener(event) {
+            const modal = document.getElementById('image-modal');
+            const modalContent = modal.querySelector('.modal-content');
+
+            // Check if the click target is outside the modal content
+            if (event.target === modal && !modalContent.contains(event.target)) {
+                closeImageModal();
+            }
+        }
+
+        function openIframeModal(iframeUrl) {
+            const modal = document.getElementById('iframe-modal');
+            const modalIframe = document.getElementById('modal-iframe');
+            modalIframe.src = iframeUrl;
+            modal.style.display = 'flex';
+
+            // Add event listener for clicks outside the modal content
+            window.addEventListener('click', outsideIframeClickListener);
+        }
+
+        function closeIframeModal() {
+            const modal = document.getElementById('iframe-modal');
+            const modalIframe = document.getElementById('modal-iframe');
+            modal.style.display = 'none';
+            modalIframe.src = ''; // Clear source
+
+            // Remove the event listener when the modal is closed
+            window.removeEventListener('click', outsideIframeClickListener);
+        }
+
+        // Function to handle outside click detection for iframe modal
+        function outsideIframeClickListener(event) {
+            const modal = document.getElementById('iframe-modal');
+            const modalContent = modal.querySelector('.modal-content');
+
+            // Check if the click target is outside the modal content
+            if (event.target === modal && !modalContent.contains(event.target)) {
+                closeIframeModal();
+            }
+        }
+    </script>
+</body>
+
+</html>

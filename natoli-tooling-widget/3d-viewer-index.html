@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tooling Quote Beater Widget</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Import Model Viewer -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="campaign-header" role="banner">
+        <div class="title-container">
+            <h1 class="main-title">
+                <span class="highlight-text">Send Us Your Tooling Quote</span> – <strong>We'll Beat It!</strong>
+            </h1>
+            <p class="subtitle">
+                Natoli Engineering guarantees better pricing and unmatched quality! Let’s get started by collecting your
+                tooling details.
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="main-content" role="main">
+        <!-- Flexbox Container -->
+        <div class="main-container">
+        <!-- Left Container: Image Viewer -->
+        <section class="left-container" aria-labelledby="3d-tool-viewer-header">
+            <h2 id="3d-tool-viewer-header" class="section-title">Interactive 3D Tool Viewer</h2>
+            <model-viewer src="assets/models/Lower_3 Tip Multi-Tool.glb" ar ar-modes="scene-viewer webxr quick-look"
+                camera-controls tone-mapping="aces" poster="assets/images/poster.webp" shadow-intensity="1.52" exposure="1.42"
+                shadow-softness="1" environment-image="assets/environments/IndoorEnvironmentHDRI003_12K-TONEMAPPED.jpg"
+                camera-target="0m 0.01m 0m" auto-rotate>
+                <div class="progress-bar hide-2" slot="progress-bar-2">
+                    <div class="update-bar"></div>
+                </div>
+                <button slot="ar-button" id="ar-button">View in your space</button>
+                <div id="ar-prompt">
+                    <img src="https://modelviewer.dev/shared-assets/icons/hand.png">
+                </div>
+            </model-viewer>
+        </section>
+
+            <!-- Right Container: Multi-Step Form -->
+            <section class="right-container">
+                <form id="multi-step-form" novalidate>
+                    <!-- Step 1 -->
+                    <div class="form-step active" data-step="1">
+                        <h2>Send Us Your Tooling Quote – We'll Beat It!</h2>
+                        <div class="progress-bar" aria-label="Progress">
+                            <div class="progress"></div>
+                        </div>
+                        <p>Natoli Engineering guarantees better pricing and unmatched quality! Let’s get started by
+                            collecting your tooling details.</p>
+                        <div class="centered-button">
+                            <button type="button" class="next-step">Next</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="form-step" data-step="2">
+                        <h2>Tooling Specifications</h2>
+                        <div class="progress-bar" aria-label="Progress">
+                            <div class="progress"></div>
+                        </div>
+                        <label for="tool-size">Tool Size/Type:</label>
+                        <select id="tool-size" name="tool-size" required>
+                            <option value="">Select Tool Type</option>
+                            <option value="type1">Type 1</option>
+                            <option value="type2">Type 2</option>
+                            <option value="custom">Custom</option>
+                        </select>
+                        <label for="quantity">Quantity Needed:</label>
+                        <input type="number" id="quantity" name="quantity" required min="1">
+                        <label for="notes">Additional Notes/Specifications:</label>
+                        <textarea id="notes" name="notes" rows="4"></textarea>
+                        <div class="button-container">
+                            <button type="button" class="prev-step">Previous</button>
+                            <span class="info-text">Step 2 of 5</span>
+                            <button type="button" class="next-step">Next</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="form-step" data-step="3">
+                        <h2>Current Quote Details</h2>
+                        <div class="progress-bar" aria-label="Progress">
+                            <div class="progress"></div>
+                        </div>
+                        <label for="price-per-tool">Price Per Tool:</label>
+                        <input type="number" id="price-per-tool" name="price-per-tool" required min="0.01" step="0.01">
+                        <label for="manufacturer">Manufacturer/Supplier Name:</label>
+                        <input type="text" id="manufacturer" name="manufacturer" required>
+                        <label for="quote-upload">Upload Competitor Quote:</label>
+                        <input type="file" id="quote-upload" name="quote-upload" accept=".pdf, .png, .jpg" required>
+                        <small>Supported formats: PDF, PNG, JPG</small>
+                        <div class="button-container">
+                            <button type="button" class="prev-step">Previous</button>
+                            <span class="info-text">Step 3 of 5</span>
+                            <button type="button" class="next-step">Next</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="form-step" data-step="4">
+                        <h2>Contact Information</h2>
+                        <div class="progress-bar" aria-label="Progress">
+                            <div class="progress"></div>
+                        </div>
+                        <label for="full-name">Full Name:</label>
+                        <input type="text" id="full-name" name="full-name" required>
+                        <label for="company-name">Company Name:</label>
+                        <input type="text" id="company-name" name="company-name" required>
+                        <label for="email">Email Address:</label>
+                        <input type="email" id="email" name="email" required>
+                        <label for="phone-number">Phone Number:</label>
+                        <input type="tel" id="phone-number" name="phone-number" required
+                            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890">
+                        <label for="contact-method">Preferred Contact Method:</label>
+                        <select id="contact-method" name="contact-method" required>
+                            <option value="">Select Contact Method</option>
+                            <option value="email">Email</option>
+                            <option value="phone">Phone</option>
+                            <option value="no-preference">No Preference</option>
+                        </select>
+                        <div class="button-container">
+                            <button type="button" class="prev-step">Previous</button>
+                            <span class="info-text">Step 4 of 5</span>
+                            <button type="button" class="next-step">Next</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="form-step" data-step="5">
+                        <h2>Confirmation</h2>
+                        <div class="progress-bar" aria-label="Progress">
+                            <div class="progress"></div>
+                        </div>
+                        <p>Please confirm the accuracy of the provided details before submission.</p>
+                        <label>
+                            <input type="checkbox" id="confirm-accuracy" name="confirm-accuracy" required>
+                            I confirm that the uploaded quote is accurate to the best of my knowledge.
+                        </label>
+                        <div class="button-container">
+                            <button type="button" class="prev-step">Previous</button>
+                            <span class="info-text">Step 5 of 5</span>
+                            <button type="submit">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="3d-viewer.js"></script>
+    <script src="3d-viewer-main-script.js"></script>
+</body>
+
+</html>

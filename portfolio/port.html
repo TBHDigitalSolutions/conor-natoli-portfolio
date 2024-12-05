@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conor Hovis - Digital Marketing & Content Strategist</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="port.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script defer src="script.js"></script>
+</head>
+
+<body>
+    <!-- Header / Hero Section -->
+    <header>
+        <div class="hero"
+            style="background-image: url('../assets/images/fallback-image.jpg'); background-size: cover; background-position: center;">
+            <video autoplay muted loop id="hero-video" loading="lazy" preload="auto"
+                onerror="this.style.display='none';">
+                <source
+                    src="https://storage.googleapis.com/tbh-digital-solutions-content/tbh-digital-solutions-website-content/website-videos/website-hero_1.mp4"
+                    type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="hero-content">
+                <img src="../assets/images/Logo_Transparent.svg" alt="Conor Hovis Logo" class="logo">
+                <h1>Conor Hovis</h1>
+                <h2>Senior Digital Marketing & Content Specialist</h2>
+                <button id="open-contact-form" class="cta-button">Get In Touch</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Resume Preview Section -->
+        <section class="resume-preview-section deep-navy-gradient section-padding">
+            <h2>Resume Overview</h2>
+            <div class="iframe-container">
+                <iframe src="../resume/resume-1.html" class="small-iframe" title="Resume Preview"></iframe>
+            </div>
+            <button class="cta-button" onclick="openModal()">View Full Resume</button>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills-section deep-navy-gradient section-padding">
+            <h2>Core Competencies</h2>
+            <ul class="skills-list">
+                <li>Strategic Marketing Leadership</li>
+                <li>Brand Development & Reputation Management</li>
+                <li>Digital Transformation & Multi-Channel Campaigns</li>
+                <li>Data Analytics & ROI Measurement</li>
+                <li>Crisis Communications & Stakeholder Engagement</li>
+                <li>Marketing Automation & Lead Generation</li>
+                <li>SEO/SEM, Social Media & Email Marketing</li>
+                <li>Content Creation (Video/Design/Written)</li>
+            </ul>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="portfolio-section deep-navy-gradient section-padding">
+            <h2>Portfolio</h2>
+
+            <!-- Video Portfolio Carousel -->
+            <div class="portfolio-category">
+                <h3>Video Portfolio</h3>
+                <div class="portfolio-carousel">
+                    <div class="carousel-slide">
+                        <!-- Video Portfolio Item 1 -->
+                        <div class="portfolio-item" data-video-src="https://storage.googleapis.com/tbh-digital-solutions-content/tbh-digital-solutions-website-content/website-videos/website-video-and-content-1-1.mp4" onclick="openVideoModal(this)">
+                            <img src="project1-thumbnail.jpg" alt="Custom Website Development"
+                                class="portfolio-thumbnail">
+                            <p>Custom Website Development</p>
+                        </div>
+
+                        <!-- Video Portfolio Item 2 -->
+                        <div class="portfolio-item" data-video-src="https://storage.googleapis.com/tbh-digital-solutions-content/tbh-digital-solutions-website-content/website-videos/website-video-and-content-1-1.mp4" onclick="openVideoModal(this)">
+                            <img src="project2-thumbnail.jpg" alt="Video Production" class="portfolio-thumbnail">
+                            <p>Video Production</p>
+                        </div>
+
+                        <!-- Video Portfolio Item 3 -->
+                        <div class="portfolio-item" data-video-src="https://storage.googleapis.com/tbh-digital-solutions-content/tbh-digital-solutions-website-content/website-videos/website-video-and-content-1-1.mp4" onclick="openVideoModal(this)">
+                            <img src="project3-thumbnail.jpg" alt="CRM Integration" class="portfolio-thumbnail">
+                            <p>CRM Integration</p>
+                        </div>
+
+                        <!-- Video Portfolio Item 4 -->
+                        <div class="portfolio-item" data-video-src="https://storage.googleapis.com/tbh-digital-solutions-content/tbh-digital-solutions-website-content/website-videos/website-video-and-content-1-1.mp4" onclick="openVideoModal(this)">
+                            <img src="project4-thumbnail.jpg" alt="Marketing Campaign" class="portfolio-thumbnail">
+                            <p>Marketing Campaign</p>
+                        </div>
+
+                        <!-- Video Portfolio Item 5 -->
+                        <div class="portfolio-item" data-video-src="https://storage.googleapis.com/tbh-digital-solutions-content/tbh-digital-solutions-website-content/website-videos/website-video-and-content-1-1.mp4" onclick="openVideoModal(this)">
+                            <img src="project5-thumbnail.jpg" alt="Branding Project" class="portfolio-thumbnail">
+                            <p>Branding Project</p>
+                        </div>
+
+                        <!-- Video Portfolio Item 6 -->
+                        <div class="portfolio-item" data-video-src="https://storage.googleapis.com/tbh-digital-solutions-content/tbh-digital-solutions-website-content/website-videos/website-video-and-content-1-1.mp4" onclick="openVideoModal(this)">
+                            <img src="project6-thumbnail.jpg" alt="Product Demo" class="portfolio-thumbnail">
+                            <p>Product Demo</p>
+                        </div>
+
+                        <!-- Video Portfolio Item 7 -->
+                        <div class="portfolio-item" data-video-src="https://storage.googleapis.com/tbh-digital-solutions-content/tbh-digital-solutions-website-content/website-videos/website-video-and-content-1-1.mp4" onclick="openVideoModal(this)">
+                            <img src="project7-thumbnail.jpg" alt="Event Highlights" class="portfolio-thumbnail">
+                            <p>Event Highlights</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image Portfolio Carousel -->
+            <div class="portfolio-category">
+                <h3>Image Portfolio</h3>
+                <div class="portfolio-carousel">
+                    <div class="carousel-slide">
+                        <!-- Image Portfolio Item 1 -->
+                        <div class="portfolio-item" data-image-src="project1-image.jpg" onclick="openImageModal(this)">
+                            <img src="project1-thumbnail.jpg" alt="Graphic Design Project" class="portfolio-thumbnail">
+                            <p>Graphic Design Project</p>
+                        </div>
+
+                        <!-- Image Portfolio Item 2 -->
+                        <div class="portfolio-item" data-image-src="project2-image.jpg" onclick="openImageModal(this)">
+                            <img src="project2-thumbnail.jpg" alt="Branding Concept" class="portfolio-thumbnail">
+                            <p>Branding Concept</p>
+                        </div>
+
+                        <!-- Image Portfolio Item 3 -->
+                        <div class="portfolio-item" data-image-src="project3-image.jpg" onclick="openImageModal(this)">
+                            <img src="project3-thumbnail.jpg" alt="Social Media Campaign" class="portfolio-thumbnail">
+                            <p>Social Media Campaign</p>
+                        </div>
+
+                        <!-- Image Portfolio Item 4 -->
+                        <div class="portfolio-item" data-image-src="project4-image.jpg" onclick="openImageModal(this)">
+                            <img src="project4-thumbnail.jpg" alt="Event Photography" class="portfolio-thumbnail">
+                            <p>Event Photography</p>
+                        </div>
+
+                        <!-- Image Portfolio Item 5 -->
+                        <div class="portfolio-item" data-image-src="project5-image.jpg" onclick="openImageModal(this)">
+                            <img src="project5-thumbnail.jpg" alt="Infographic Design" class="portfolio-thumbnail">
+                            <p>Infographic Design</p>
+                        </div>
+
+                        <!-- Image Portfolio Item 6 -->
+                        <div class="portfolio-item" data-image-src="project6-image.jpg" onclick="openImageModal(this)">
+                            <img src="project6-thumbnail.jpg" alt="Logo Creation" class="portfolio-thumbnail">
+                            <p>Logo Creation</p>
+                        </div>
+
+                        <!-- Image Portfolio Item 7 -->
+                        <div class="portfolio-item" data-image-src="project7-image.jpg" onclick="openImageModal(this)">
+                            <img src="project7-thumbnail.jpg" alt="Print Advertising" class="portfolio-thumbnail">
+                            <p>Print Advertising</p>
+                        </div>
+
+                        <!-- Image Portfolio Item 8 -->
+                        <div class="portfolio-item" data-image-src="project8-image.jpg" onclick="openImageModal(this)">
+                            <img src="project8-thumbnail.jpg" alt="Website Mockup" class="portfolio-thumbnail">
+                            <p>Website Mockup</p>
+                        </div>
+
+                        <!-- Image Portfolio Item 9 -->
+                        <div class="portfolio-item" data-image-src="project9-image.jpg" onclick="openImageModal(this)">
+                            <img src="project9-thumbnail.jpg" alt="Poster Design" class="portfolio-thumbnail">
+                            <p>Poster Design</p>
+                        </div>
+
+                        <!-- Image Portfolio Item 10 -->
+                        <div class="portfolio-item" data-image-src="project10-image.jpg" onclick="openImageModal(this)">
+                            <img src="project10-thumbnail.jpg" alt="Brochure Layout" class="portfolio-thumbnail">
+                            <p>Brochure Layout</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Web Development Portfolio Carousel -->
+            <div class="portfolio-category">
+                <h3>Web Development Portfolio</h3>
+                <div class="portfolio-carousel">
+                    <div class="carousel-slide">
+                        <!-- Web Development Portfolio Item 1 -->
+                        <div class="portfolio-item" data-website-src="https://example1.com"
+                            onclick="openWebsiteModal(this)">
+                            <img src="website1-thumbnail.jpg" alt="E-commerce Platform" class="portfolio-thumbnail">
+                            <p>E-commerce Platform</p>
+                        </div>
+
+                        <!-- Web Development Portfolio Item 2 -->
+                        <div class="portfolio-item" data-website-src="https://example2.com"
+                            onclick="openWebsiteModal(this)">
+                            <img src="website2-thumbnail.jpg" alt="Corporate Website" class="portfolio-thumbnail">
+                            <p>Corporate Website</p>
+                        </div>
+
+                        <!-- Web Development Portfolio Item 3 -->
+                        <div class="portfolio-item" data-website-src="https://example3.com"
+                            onclick="openWebsiteModal(this)">
+                            <img src="website3-thumbnail.jpg" alt="Portfolio Showcase" class="portfolio-thumbnail">
+                            <p>Portfolio Showcase</p>
+                        </div>
+
+                        <!-- Web Development Portfolio Item 4 -->
+                        <div class="portfolio-item" data-website-src="https://example4.com"
+                            onclick="openWebsiteModal(this)">
+                            <img src="website4-thumbnail.jpg" alt="Landing Page Design" class="portfolio-thumbnail">
+                            <p>Landing Page Design</p>
+                        </div>
+
+                        <!-- Web Development Portfolio Item 5 -->
+                        <div class="portfolio-item" data-website-src="https://example5.com"
+                            onclick="openWebsiteModal(this)">
+                            <img src="website5-thumbnail.jpg" alt="Blog and News Platform" class="portfolio-thumbnail">
+                            <p>Blog and News Platform</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modals -->
+        <!-- Video Modal Structure -->
+        <div id="video-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeModal()">&times;</span>
+                <video controls autoplay id="modal-video" class="modal-video">
+                    <source src="" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+
+        <!-- Image Modal Structure -->
+        <div id="image-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeModal()">&times;</span>
+                <img id="modal-image" class="modal-image" src="" alt="Image Preview">
+            </div>
+        </div>
+
+        <!-- Website Modal Structure -->
+        <div id="website-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeModal()">&times;</span>
+                <iframe id="modal-iframe" src="" class="modal-iframe" frameborder="0"></iframe>
+            </div>
+        </div>
+
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section deep-navy-gradient section-padding">
+            <h2>Contact Me</h2>
+            <p>Ready to transform your business? Connect with me today.</p>
+            <button class="cta-button open-form">Get In Touch</button>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="deep-navy-gradient">
+        <p>Connect with me today and take the first step toward a smarter, more effective future.</p>
+        <p>&copy; 2024 Conor Hovis. All rights reserved.</p>
+        <nav>
+            <a href="#feedback">Send Feedback</a> |
+            <a href="/privacy-policy.html">Privacy Policy</a> |
+            <a href="/terms-and-conditions.html">Terms and Conditions</a>
+        </nav>
+    </footer>
+
+    <!-- JavaScript for Modal and other interactions -->
+    <script src="script.js"></script>
+</body>
+
+</html>

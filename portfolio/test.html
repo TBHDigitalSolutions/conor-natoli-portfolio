@@ -1,0 +1,526 @@
+Lily’s note
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Profile Cards</title>
+
+    <!-- jQuery library (Slick depends on jQuery) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Slick CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+
+    <!-- Slick JS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #07080D;
+            color: #f4f6f7;
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            color: #0EAFFB;
+            margin-bottom: 10px;
+        }
+
+        .portfolio-section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .portfolio-cards-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .portfolio-card {
+            background-color: #1A1B23;
+            color: #f4f6f7;
+            border-radius: 10px;
+            padding: 20px;
+            width: 33%;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .portfolio-card button {
+            background-color: #0EAFFB;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .accordion-content {
+            display: none;
+            /* Initially hidden */
+            margin-top: 20px;
+            padding: 20px 10px;
+            background-color: #1A1B23;
+            border-radius: 8px;
+        }
+
+        .carousel-slide {
+            display: flex;
+            gap: 15px;
+        }
+
+        .portfolio-item {
+            background-color: #1A1B23;
+            color: #f4f6f7;
+            border-radius: 10px;
+            flex: 0 0 200px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .portfolio-thumbnail {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .modal-content {
+            background-color: #1A1B23;
+            border-radius: 8px;
+            padding: 20px;
+            max-width: 800px;
+            width: 90%;
+            color: #f4f6f7;
+            position: relative;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+            color: #f4f6f7;
+            cursor: pointer;
+        }
+
+        .close-button:hover {
+            color: #5AC8FA;
+        }
+        /* Thumbnail Carousel Styles */
+        .thumbnail-carousel {
+            margin-top: 10px;
+        }
+
+        .thumbnail-item {
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .thumbnail-item img {
+            width: 60px; /* Width of each thumbnail */
+            height: 45px; /* Height of each thumbnail */
+            object-fit: cover;
+            border-radius: 5px;
+            opacity: 0.6; /* Dim non-selected thumbnails */
+            transition: opacity 0.3s ease;
+        }
+
+        .thumbnail-item.slick-current img {
+            opacity: 1; /* Highlight selected thumbnail */
+            border: 2px solid #0EAFFB;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio-section">
+        <h2>Portfolio</h2>
+
+        <div class="portfolio-cards-container">
+            <!-- Video Portfolio Card -->
+            <div class="portfolio-card">
+                <h3>Video Portfolio</h3>
+                <p>Engaging video content to elevate brand stories.</p>
+                <button onclick="toggleAccordion('video-portfolio')">View Example</button>
+            </div>
+
+            <!-- Image Portfolio Card -->
+            <div class="portfolio-card">
+                <h3>Image Portfolio</h3>
+                <p>Showcasing expertise in visual design and branding.</p>
+                <button onclick="toggleAccordion('image-portfolio')">View Example</button>
+            </div>
+
+            <!-- Web Development Portfolio Card -->
+            <div class="portfolio-card">
+                <h3>Web Development Portfolio</h3>
+                <p>Interactive, user-centric web experiences.</p>
+                <button onclick="toggleAccordion('web-portfolio')">View Example</button>
+            </div>
+        </div>
+
+        <!-- Video Carousel with Thumbnails -->
+        <div id="video-portfolio" class="accordion-content">
+            <!-- Main Video Carousel -->
+            <div class="carousel-slide video-carousel">
+                <div class="portfolio-item">
+                    <img src="https://storage.googleapis.com/tbh-digital-solutions-content/step3/videos/step_3_crm-1-video/Email%20Automation.png"
+                        alt="Video 1" class="portfolio-thumbnail"
+                        onclick="openVideoModal('https://storage.googleapis.com/tbh-digital-solutions-content/step3/videos/step_3_crm-1-video/TBH%20Custom%20CRM-1.mp4')">
+                    <p>Custom Video 1</p>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="https://storage.googleapis.com/tbh-digital-solutions-content/step3/videos/step_3_crm-2-video/Email%20Automation.png"
+                        alt="Video 2" class="portfolio-thumbnail"
+                        onclick="openVideoModal('https://storage.googleapis.com/tbh-digital-solutions-content/step3/videos/step_3_crm-2-video/TBH%20Custom%20CRM-2.mp4')">
+                    <p>Custom Video 2</p>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="https://storage.googleapis.com/tbh-digital-solutions-content/step3/videos/step_3_crm-3-video/Smart%20Contact%20List.png"
+                        alt="Video 3" class="portfolio-thumbnail"
+                        onclick="openVideoModal('https://storage.googleapis.com/tbh-digital-solutions-content/step3/videos/step_3_crm-3-video/TBH%20Custom%20CRM-3.mp4')">
+                    <p>Custom Video 3</p>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="https://storage.googleapis.com/tbh-digital-solutions-content/step3/videos/step_3_crm-4-video/Marketing%20Reports.png"
+                        alt="Video 4" class="portfolio-thumbnail"
+                        onclick="openVideoModal('https://storage.googleapis.com/tbh-digital-solutions-content/step3/videos/step_3_crm-4-video/TBH%20Custom%20CRM-4.mp4')">
+                    <p>Custom Video 4</p>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="https://storage.googleapis.com/tbh-digital-solutions-content/step3/videos/step_3_crm-5-video/A%20and%20B%20Split%20Testing.png"
+                        alt="Video 5" class="portfolio-thumbnail"
+                        onclick="openVideoModal('https://storage.googleapis.com/tbh-digital-solutions-content/step3/videos/step_3_crm-5-video/TBH%20Custom%20CRM-5.mp4')">
+                    <p>Custom Video 5</p>
+                </div>
+            </div>
+
+            <!-- Thumbnail Carousel for Navigation -->
+            <div class="thumbnail-carousel video-thumbnail-carousel">
+                <div class="thumbnail-item">
+                    <img src="https://storage.googleapis.com/tbh-digital-solutions-content/step3/videos/step_3_crm-1-video/Email%20Automation.png"
+                        alt="Video 1 Thumbnail">
+                </div>
+
+                <div class="thumbnail-item">
+                    <img src="https://storage.googleapis.com/tbh-digital-solutions-content/step3/videos/step_3_crm-2-video/Email%20Automation.png"
+                        alt="Video 2 Thumbnail">
+                </div>
+
+                <div class="thumbnail-item">
+                    <img src="https://storage.googleapis.com/tbh-digital-solutions-content/step3/videos/step_3_crm-3-video/Smart%20Contact%20List.png"
+                        alt="Video 3 Thumbnail">
+                </div>
+
+                <div class="thumbnail-item">
+                    <img src="https://storage.googleapis.com/tbh-digital-solutions-content/step3/videos/step_3_crm-4-video/Marketing%20Reports.png"
+                        alt="Video 4 Thumbnail">
+                </div>
+
+                <div class="thumbnail-item">
+                    <img src="https://storage.googleapis.com/tbh-digital-solutions-content/step3/videos/step_3_crm-5-video/A%20and%20B%20Split%20Testing.png"
+                        alt="Video 5 Thumbnail">
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Video Modal -->
+        <div id="video-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeModal()">&times;</span>
+                <video id="modal-video" controls autoplay style="width: 100%; border-radius: 8px;">
+                    <source src="" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+
+        <!-- Accordion Content for Image Portfolio -->
+        <div id="image-portfolio" class="accordion-content">
+            <!-- Main Image Carousel -->
+            <div class="carousel-slide image-carousel">
+                <!-- Image Item 1 -->
+                <div class="portfolio-item">
+                    <img src="https://storage.googleapis.com/tbh-digital-solutions-content/portfolio-thumbnails/image1-thumbnail.jpg"
+                        alt="Image 1" class="portfolio-thumbnail"
+                        onclick="openImageModal('https://storage.googleapis.com/tbh-digital-solutions-content/portfolio-thumbnails/image1.jpg')">
+                    <p>Graphic Design Project</p>
+                </div>
+
+                <!-- Image Item 2 -->
+                <div class="portfolio-item">
+                    <img src="https://storage.googleapis.com/tbh-digital-solutions-content/portfolio-thumbnails/image2-thumbnail.jpg"
+                        alt="Image 2" class="portfolio-thumbnail"
+                        onclick="openImageModal('https://storage.googleapis.com/tbh-digital-solutions-content/portfolio-thumbnails/image2.jpg')">
+                    <p>Branding Concept</p>
+                </div>
+
+                <!-- Image Item 3 -->
+                <div class="portfolio-item">
+                    <img src="https://storage.googleapis.com/tbh-digital-solutions-content/portfolio-thumbnails/image3-thumbnail.jpg"
+                        alt="Image 3" class="portfolio-thumbnail"
+                        onclick="openImageModal('https://storage.googleapis.com/tbh-digital-solutions-content/portfolio-thumbnails/image3.jpg')">
+                    <p>Advertising Campaign</p>
+                </div>
+
+                <!-- Image Item 4 -->
+                <div class="portfolio-item">
+                    <img src="https://storage.googleapis.com/tbh-digital-solutions-content/portfolio-thumbnails/image4-thumbnail.jpg"
+                        alt="Image 4" class="portfolio-thumbnail"
+                        onclick="openImageModal('https://storage.googleapis.com/tbh-digital-solutions-content/portfolio-thumbnails/image4.jpg')">
+                    <p>Social Media Design</p>
+                </div>
+
+                <!-- Image Item 5 -->
+                <div class="portfolio-item">
+                    <img src="https://storage.googleapis.com/tbh-digital-solutions-content/portfolio-thumbnails/image5-thumbnail.jpg"
+                        alt="Image 5" class="portfolio-thumbnail"
+                        onclick="openImageModal('https://storage.googleapis.com/tbh-digital-solutions-content/portfolio-thumbnails/image5.jpg')">
+                    <p>Illustration Work</p>
+                </div>
+            </div>
+
+            <!-- Thumbnail Carousel for Navigation -->
+            <div class="thumbnail-carousel image-thumbnail-carousel">
+                <div class="thumbnail-item">
+                    <img src="https://storage.googleapis.com/tbh-digital-solutions-content/portfolio-thumbnails/image1-thumbnail.jpg"
+                        alt="Image 1 Thumbnail">
+                </div>
+
+                <div class="thumbnail-item">
+                    <img src="https://storage.googleapis.com/tbh-digital-solutions-content/portfolio-thumbnails/image2-thumbnail.jpg"
+                        alt="Image 2 Thumbnail">
+                </div>
+
+                <div class="thumbnail-item">
+                    <img src="https://storage.googleapis.com/tbh-digital-solutions-content/portfolio-thumbnails/image3-thumbnail.jpg"
+                        alt="Image 3 Thumbnail">
+                </div>
+
+                <div class="thumbnail-item">
+                    <img src="https://storage.googleapis.com/tbh-digital-solutions-content/portfolio-thumbnails/image4-thumbnail.jpg"
+                        alt="Image 4 Thumbnail">
+                </div>
+
+                <div class="thumbnail-item">
+                    <img src="https://storage.googleapis.com/tbh-digital-solutions-content/portfolio-thumbnails/image5-thumbnail.jpg"
+                        alt="Image 5 Thumbnail">
+                </div>
+            </div>
+        </div>
+
+        <!-- Accordion Content for Web Development Portfolio -->
+        <div id="web-portfolio" class="accordion-content">
+            <!-- Main Iframe Carousel -->
+            <div class="carousel-slide iframe-carousel">
+                <!-- Iframe Item 1 -->
+                <div class="portfolio-item" onclick="openIframeModal('https://yourwebsite.com/path-to-website1')">
+                    <img src="https://storage.googleapis.com/tbh-digital-solutions-content/portfolio-thumbnails/website1-thumbnail.jpg"
+                        alt="Website 1" class="portfolio-thumbnail">
+                    <p>E-commerce Platform</p>
+                </div>
+
+                <!-- Iframe Item 2 -->
+                <div class="portfolio-item" onclick="openIframeModal('https://yourwebsite.com/path-to-website2')">
+                    <img src="https://storage.googleapis.com/tbh-digital-solutions-content/portfolio-thumbnails/website2-thumbnail.jpg"
+                        alt="Website 2" class="portfolio-thumbnail">
+                    <p>Corporate Website</p>
+                </div>
+
+                <!-- Iframe Item 3 -->
+                <div class="portfolio-item" onclick="openIframeModal('https://yourwebsite.com/path-to-website3')">
+                    <img src="https://storage.googleapis.com/tbh-digital-solutions-content/portfolio-thumbnails/website3-thumbnail.jpg"
+                        alt="Website 3" class="portfolio-thumbnail">
+                    <p>Portfolio Showcase</p>
+                </div>
+
+                <!-- Iframe Item 4 -->
+                <div class="portfolio-item" onclick="openIframeModal('https://yourwebsite.com/path-to-website4')">
+                    <img src="https://storage.googleapis.com/tbh-digital-solutions-content/portfolio-thumbnails/website4-thumbnail.jpg"
+                        alt="Website 4" class="portfolio-thumbnail">
+                    <p>Landing Page</p>
+                </div>
+
+                <!-- Iframe Item 5 -->
+                <div class="portfolio-item" onclick="openIframeModal('https://yourwebsite.com/path-to-website5')">
+                    <img src="https://storage.googleapis.com/tbh-digital-solutions-content/portfolio-thumbnails/website5-thumbnail.jpg"
+                        alt="Website 5" class="portfolio-thumbnail">
+                    <p>Product Showcase</p>
+                </div>
+            </div>
+
+            <!-- Thumbnail Carousel for Navigation -->
+            <div class="thumbnail-carousel iframe-thumbnail-carousel">
+                <div class="thumbnail-item">
+                    <img src="https://storage.googleapis.com/tbh-digital-solutions-content/portfolio-thumbnails/website1-thumbnail.jpg"
+                        alt="Website 1 Thumbnail">
+                </div>
+
+                <div class="thumbnail-item">
+                    <img src="https://storage.googleapis.com/tbh-digital-solutions-content/portfolio-thumbnails/website2-thumbnail.jpg"
+                        alt="Website 2 Thumbnail">
+                </div>
+
+                <div class="thumbnail-item">
+                    <img src="https://storage.googleapis.com/tbh-digital-solutions-content/portfolio-thumbnails/website3-thumbnail.jpg"
+                        alt="Website 3 Thumbnail">
+                </div>
+
+                <div class="thumbnail-item">
+                    <img src="https://storage.googleapis.com/tbh-digital-solutions-content/portfolio-thumbnails/website4-thumbnail.jpg"
+                        alt="Website 4 Thumbnail">
+                </div>
+
+                <div class="thumbnail-item">
+                    <img src="https://storage.googleapis.com/tbh-digital-solutions-content/portfolio-thumbnails/website5-thumbnail.jpg"
+                        alt="Website 5 Thumbnail">
+                </div>
+            </div>
+        </div>
+
+
+        <script>
+            $(document).ready(function () {
+                // Initialize Main Video Carousel
+                $('.video-carousel').slick({
+                    infinite: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows: true,
+                    asNavFor: '.video-thumbnail-carousel', // Link with thumbnail carousel
+                    fade: true // Fade transition for smooth navigation
+                });
+
+                // Initialize Thumbnail Carousel
+                $('.video-thumbnail-carousel').slick({
+                    infinite: false,
+                    slidesToShow: 3, // Display 3 thumbnails at a time
+                    slidesToScroll: 1,
+                    asNavFor: '.video-carousel', // Link with main carousel
+                    focusOnSelect: false, // Click to navigate main carousel
+                    centerMode: false,
+                    arrows: false // Hide arrows for thumbnail navigation
+                });
+            });
+            $(document).ready(function () {
+                // Initialize Main Image Carousel
+                $('.image-carousel').slick({
+                    infinite: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows: true,
+                    asNavFor: '.image-thumbnail-carousel', // Link with thumbnail carousel
+                    fade: true // Smooth fade transition
+                });
+
+                // Initialize Thumbnail Carousel
+                $('.image-thumbnail-carousel').slick({
+                    infinite: true,
+                    slidesToShow: 3, // Display 3 thumbnails
+                    slidesToScroll: 1,
+                    asNavFor: '.image-carousel', // Link with main carousel
+                    focusOnSelect: true, // Click to navigate main carousel
+                    centerMode: true,
+                    arrows: false // Hide arrows for thumbnail navigation
+                });
+            });
+            $(document).ready(function () {
+                // Initialize Main Iframe Carousel
+                $('.iframe-carousel').slick({
+                    infinite: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows: true,
+                    asNavFor: '.iframe-thumbnail-carousel', // Link with thumbnail carousel
+                    fade: true // Smooth fade transition
+                });
+
+                // Initialize Thumbnail Carousel
+                $('.iframe-thumbnail-carousel').slick({
+                    infinite: true,
+                    slidesToShow: 3, // Display 3 thumbnails
+                    slidesToScroll: 1,
+                    asNavFor: '.iframe-carousel', // Link with main carousel
+                    focusOnSelect: true, // Click to navigate main carousel
+                    centerMode: true,
+                    arrows: false // Hide arrows for thumbnail navigation
+                });
+            });
+
+            // Accordion toggle function with Slick repositioning
+            function toggleAccordion(sectionId) {
+                const section = document.getElementById(sectionId);
+
+                // Toggle the display of the section
+                if (section.style.display === 'block') {
+                    section.style.display = 'none';
+                } else {
+                    section.style.display = 'block';
+
+                    // Ensure Slick Carousel repositions properly
+                    $(`#${sectionId} .carousel-slide`).slick('setPosition');
+                }
+            }
+
+            // Open video in modal
+            function openVideoModal(videoUrl) {
+                const modal = document.getElementById('video-modal');
+                const modalVideo = document.getElementById('modal-video');
+                modalVideo.src = videoUrl;
+                modal.style.display = 'flex';
+            }
+
+            // Close modal function
+            function closeModal() {
+                const modal = document.getElementById('video-modal');
+                const modalVideo = document.getElementById('modal-video');
+                modal.style.display = 'none';
+                modalVideo.pause();
+                modalVideo.src = ''; // Clear source to stop video playback
+            }
+
+            // Close modal when clicking outside the content area
+            window.onclick = function (event) {
+                if (event.target.classList.contains('modal')) {
+                    closeModal();
+                }
+            };
+        </script>
+</body>
+
+</html>

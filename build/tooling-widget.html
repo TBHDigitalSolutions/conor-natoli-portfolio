@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Custom Interactive Tooling Widget – Tailored for Natoli Engineering">
+    <title>Interactive Tooling Widget</title>
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="./2-tooling-test-styles.css">
+</head>
+
+<body>
+    <section id="interactive-widget" class="portfolio-section-123">
+        <div class="widget-container">
+            <!-- Left Side: Mini Interactive Preview -->
+            <div class="widget-preview">
+                <iframe src="../natoli-tooling-widget/3d-viewer-index.html" class="mini-widget"
+                    title="Interactive Tooling Widget Preview" frameborder="0" loading="lazy"></iframe>
+                <!-- CTA Button -->
+                <button id="launch-widget" class="button button-red pulse glow" data-text="Expand to Fullscreen View">
+                    Expand to Fullscreen View
+                </button>                
+            </div>
+            <!-- Right Side: Project Details -->
+            <section class="widget-details">
+                <!-- Title Container -->
+                <div class="container">
+                    <h2 class="main-title">
+                        <span class="title-primary">Interactive Tooling Widget</span>
+                        <br>
+                        <span class="title-secondary">A Custom Creation for Natoli Engineering</span>
+                    </h2>
+                </div>
+
+                <!-- Slider Container -->
+                <div class="slider" id="scroller">
+                    <div class="card">
+                        <div class="content">
+                                <h2 class="title">Versatile Impact, Immediate Results</h2>
+                                <p>
+                                    I built this section specifically for Natoli to showcase my
+                                    <strong>web development skills</strong> and <strong>digital expertise</strong>.
+                                    After Brian requested portfolio samples, I created a solution tailored to Natoli’s vision.
+                                    This widget blends <strong>innovation</strong> and <strong>functionality</strong> to address
+                                    <strong>key marketing goals</strong> such as enhancing user engagement and streamlining lead
+                                    generation.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2: Key Features - Interactive 3D Tool Viewer -->
+                        <div class="card">
+                            <div class="content">
+                                <h2 class="title">Key Features</h2>
+                                <h3 class="subtitle">Interactive 3D Tool Viewer</h3>
+                                <ul>
+                                    <li><strong>Engaging Visualization:</strong> Fully interactive 3D model of a tooling component, allowing
+                                        users to explore products with precision and clarity.</li>
+                                    <li><strong>Innovative Technology:</strong> Reflects Dale's vision of incorporating advanced 3D technology
+                                        into Natoli’s digital strategy, providing an immersive user experience.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3: Key Features - Dynamic Multi-Step Form -->
+                        <div class="card">
+                            <div class="content">
+                                <h2 class="title">Key Features</h2>
+                                <h3 class="subtitle">Dynamic Multi-Step Form</h3>
+                                <ul>
+                                    <li><strong>Streamlined Lead Generation:</strong> Positioned alongside the 3D viewer to guide users through
+                                        an interactive and intuitive inquiry process.</li>
+                                    <li><strong>Seamless User Experience:</strong> Simplifies the quote request process, improving engagement
+                                        and making it easier for clients to submit detailed inquiries.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Slide 4: Why It Matters -->
+                        <div class="card">
+                            <div class="content">
+                                <h2 class="title">Why It Matters</h2>
+                                <h3 class="subtitle">This project highlights my ability to:</h3>
+                                <ul>
+                                    <li><strong>Design engaging, interactive tools</strong> that captivate users.</li>
+                                    <li><strong>Integrate advanced technologies</strong> like 3D viewers and dynamic forms into a cohesive
+                                        marketing strategy.</li>
+                                    <li><strong>Streamline processes</strong> that improve lead generation and client satisfaction.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 5: Next Steps -->
+                        <div class="card">
+                            <div class="content">
+                                <h2 class="title">Next Steps</h2>
+                                <h3 class="subtitle">Transforming Marketing Efforts</h3>
+                                <p>
+                                    This widget is a <strong>proof of concept</strong> for how modern digital solutions can transform marketing
+                                    efforts at Natoli.
+                                    I’m confident my skills and expertise make me a strong candidate for the <strong>marketing manager
+                                        role</strong>.
+                                </p>
+                                <p>
+                                    I’d be grateful for the chance to meet in person and share more about how I can contribute to Natoli’s
+                                    marketing vision.
+                                    Thank you for your time and consideration for the marketing manager position.
+                                </p>
+                            </div>
+                        </div>                     
+                    </div>
+                    <!-- Slider Controls -->
+                    <div class="slider-controls">
+                    <!-- Previous Button with Wave, Glow, and Pulse Effects -->
+                    <button class="button button-red pulse wave glow" data-text="Previous" onclick="scrollSlider(-1)"
+                        aria-label="Previous Slide">
+                        &larr;
+                    </button>
+
+                    <!-- Next Button with Wave, Glow, and Pulse Effects -->
+                    <button class="button button-red pulse wave glow" data-text="Next" onclick="scrollSlider(1)"
+                        aria-label="Next Slide">
+                        &rarr;
+                    </button>
+                    </div>                    
+                </div>
+            </section>
+        </div>
+
+        <!-- Modal for Fullscreen Interactive Widget -->
+        <div id="widget-modal" class="modal hidden">
+            <div class="modal-content">
+                <span class="modal-close" id="close-modal">&times;</span>
+                <iframe src="../natoli-tooling-widget/3d-viewer-index.html" class="modal-iframe"
+                    title="Fullscreen Interactive Tooling Widget" frameborder="0"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript Import -->
+    <script src="./tooling-widget-scripts.js" defer></script>
+</body>
+
+</html>

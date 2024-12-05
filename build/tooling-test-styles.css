@@ -1,0 +1,670 @@
+@layer library, reset, base, utilities, components, layout, override;
+@import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..600&display=swap") layer(library.font);
+@import "https://unpkg.com/open-props" layer(library.design-system);
+@import "https://unpkg.com/open-props/normalize.light.min.css" layer(library.normalize);
+@import "https://unpkg.com/open-props/buttons.light.min.css" layer(library.buttons);
+/* =================================
+|      Font Imports and Usage       |
+================================= */
+
+/* Import External Libraries */
+@layer library, reset, base, utilities, components, layout, override;
+@import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..600&display=swap") layer(library.font);
+@import "https://unpkg.com/open-props" layer(library.design-system);
+@import "https://unpkg.com/open-props/normalize.light.min.css" layer(library.normalize);
+@import "https://unpkg.com/open-props/buttons.light.min.css" layer(library.buttons);
+
+/* Font Face Declarations for Local Fonts */ 
+@font-face {
+font-family: 'Eurostile';
+src: url('../natoli-tooling-widget/assets/fonts/eurostile/eurostile.TTF') format('truetype'),
+    url('../natoli-tooling-widget/assets/fonts/eurostile/EuroStyle Normal.ttf') format('truetype');
+font-weight: normal;
+font-style: normal;
+}
+
+@font-face {
+font-family: 'Eurostile Variable';
+src: url('../natoli-tooling-widget/assets/fonts/eurostile/AcuminVariableConcept.otf') format('opentype');
+font-weight: 400 600;
+/* Variable range */
+font-style: normal; 
+}
+
+@font-face {
+font-family: 'Roboto';
+src: url('../natoli-tooling-widget/assets/fonts/roboto/Roboto-Regular.ttf') format('truetype');
+font-weight: 400;
+font-style: normal;
+}
+
+@font-face {
+font-family: 'Roboto Light';
+src: url('../natoli-tooling-widget/assets/fonts/roboto/Roboto-Light.ttf') format('truetype'),
+    url('../natoli-tooling-widget/assets/fonts/roboto/Roboto-LightItalic.ttf') format('truetype');
+font-weight: 300;
+font-style: normal, italic;
+}
+
+@font-face {
+font-family: 'Roboto Bold';
+src: url('../natoli-tooling-widget/assets/fonts/roboto/Roboto-Bold.ttf') format('truetype'),
+    url('../natoli-tooling-widget/assets/fonts/roboto/Roboto-BoldItalic.ttf') format('truetype');
+font-weight: 700;
+font-style: normal, italic;
+}
+
+/* Fallback Fonts */
+body,
+input,
+textarea {
+font-family: 'Roboto', 'Eurostile', 'Inter', sans-serif;
+font-weight: 400;
+}
+
+/* =================================
+|       Font Usage Examples         |
+================================= */
+
+/* General Styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #333;
+}
+
+/* Title Container */
+.containerz {
+    margin-bottom: 0;
+    /* Ensure no extra margin affects alignment */
+    text-align: right;
+    /* Center-align the static title */
+}
+
+/* Slider */
+.slider {
+    margin-top: 0;
+    /* Remove any additional margin */
+    flex: 1;
+    /* Allow it to grow to fill remaining space */
+    overflow-y: auto;
+    /* Handle content overflow */
+    text-align: Left;
+}
+/* =================================
+|      * Global Base Styles *       |
+================================= */
+.portfolio-section-123 {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 5rem;
+    align-items: flex-start;
+    padding: 3rem;
+    border-radius: 12px;
+    /* Rounded corners */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    /* Shadow effect */
+    border-left: 6px solid #e7131d;
+    /* Left border for styling */
+    border-right: 6px solid #e7131d;
+    background: linear-gradient(to top, #181818, #171717);
+    color: #1A1B23;
+}
+.section {
+    background-color: var(--background-color, #d31313);
+    display: flex;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* Full viewport height */
+    padding: var(--size-px-8);
+    box-shadow: inset 0 -10px 20px rgba(0, 0, 0, 0.05);
+    border-radius: var(--radius-4);
+    position: relative;
+    z-index: 1;
+}
+
+/* Overall Container */
+.widget-container {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 1.5rem;
+    width: 100%;
+}
+/* Global CSS: Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.visible {
+    display: flex;
+}
+
+.modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    height: 90%;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.modal-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+}
+
+/* =================================
+|      * LEFT Container CSS *       |
+================================= */
+/* Left Container: Mini Interactive Preview */
+.widget-preview {
+    flex: 1;
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    box-sizing: border-box;
+    /* Ensure padding doesn’t affect overall size */
+    justify-content: space-between;
+    /* Distribute content evenly */
+    box-sizing: border-box;
+    /* Ensure padding doesn’t increase size */
+    padding: 1rem;
+    /* Add consistent padding */
+}
+
+/* Embedded Mini Widget */
+.widget-preview .mini-widget {
+    width: 100%;
+    height: 650px;
+    overflow-y: hidden;
+    border-radius: 12px;
+    background: linear-gradient(145deg, #ffffff, #e6e6e6);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+/* Modal Styling for Fullscreen Widget */
+.widget-preview .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Show Modal When Visible */
+.widget-preview .modal.visible {
+    display: flex;
+}
+
+/* Modal Content Container */
+.widget-preview .modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    height: 90%;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Embedded Modal Iframe */
+.widget-preview .modal-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Modal Close Button */
+.widget-preview .modal-close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+}
+/* Synchronize Height */
+.widget-preview,
+.widget-details {
+    min-height: 100%;
+    /* Ensure both have the same height */
+}
+/* Widget Details: Slider Styling */
+.widget-details .slider {
+    display: flex;
+    /* Arrange cards in a row */
+    flex-direction: row;
+    /* Horizontal layout for slides */
+    overflow-x: auto;
+    /* Enable horizontal scrolling */
+    scroll-snap-type: x mandatory;
+    /* Snap scrolling for slides */
+    gap: 1rem;
+    /* Add spacing between slides */
+    padding: 1rem;
+    /* Consistent padding inside the slider */
+    max-height: 650px;
+    /* Ensure enough height for readability */
+    background: linear-gradient(145deg, #e7131d, #ffffff);
+    /* Background for the slider */
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    /* Subtle shadow */
+}
+
+/* Individual Card Styling */
+.widget-details .slider .cardz {
+    flex: 0 0 100%;
+    /* Ensure each slide takes up the full width */
+    scroll-snap-align: start;
+    /* Align cards to start position */
+    background: var(--light-gray);
+    /* Light gray background */
+    padding: 1rem;
+    /* Add padding for card content */
+    border-radius: 8px;
+    /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.widget-details .slider .cardz:hover {
+    transform: translateY(-5px);
+    /* Hover effect */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Hide Scrollbar */
+.widget-details .slider::-webkit-scrollbar {
+    display: none;
+}
+
+/* Button Styling */
+.slider-controls button {
+    background-color: var(--red);
+    /* Red background */
+    color: white;
+    /* White text */
+    border: none;
+    /* No border */
+    padding: 0.5rem 1rem;
+    /* Add padding */
+    border-radius: 4px;
+    /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.slider-controls button:hover {
+    background-color: #c6240e;
+    /* Darker red */
+}
+/* =================================
+|      Static Title Styling         |
+================================= */
+
+/* Main Title Container */
+.main-titlez {
+    font-family: "Eurostile", sans-serif;
+    text-align: left;
+    margin-bottom: 0.5rem;
+    /* Reduced spacing */
+}
+
+.title-primaryz {
+    font-size: 2.6rem;
+    /* Balanced size */
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: linear-gradient(45deg, #e7131d, #47474b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.2rem;
+    text-align: Left;
+    /* Reduced spacing */
+}
+
+/* Secondary Title Styling */
+.title-secondaryz {
+    font-size: 1.8rem;
+    /* Slightly smaller for balance */
+    font-weight: normal;
+    font-style: italic;
+    color: #1A1B23;
+    margin-top: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    text-align: Left;
+}
+
+/* Scrollbar Styling */
+.widget-details::-webkit-scrollbar {
+    width: 8px;
+}
+
+.widget-details::-webkit-scrollbar-thumb {
+    background: linear-gradient(145deg, #e7131d, #707070);
+    border-radius: 4px;
+}
+
+.widget-details::-webkit-scrollbar-track {
+    background: transparent;
+}
+/* Hide Scrollbar for WebKit */
+.widget-details .slider::-webkit-scrollbar {
+    display: none;
+}
+
+/* =================================
+|     * RIGHT Container CSS *       |
+================================= */
+/* Widget Details Container */
+.widget-details {
+    flex: 1;
+    max-width: 50%;
+    /* Slightly wider for better text fit */
+    max-height: 650px;
+    /* Increased height for better slider fit */
+    padding: 1rem 1rem;
+    /* Balanced padding */
+    background: linear-gradient(145deg, #eaeaea, #ffffff);
+    /* Softer background */
+    border-radius: 12px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    justify-content: flex-start;
+    /* Align content to the top */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1rem auto;
+    box-sizing: border-box;
+    /* Include padding in overall size */
+}
+
+/* Individual Card (Slide) Styling */
+.portfolio-section-123 .widget-details .cardz {
+    scroll-snap-align: start;
+    /* Align cards to start position */
+    flex: 0 0 100%;
+    /* Ensure each slide takes up the full width */
+    max-width: 100%;
+    /* Prevent cards from exceeding slider width */
+    min-height: auto;
+    /* Consistent card height */
+    padding: 1.0rem;
+    /* Add padding for card content */
+    background: linear-gradient(145deg, #f4f4f4, #cccccd);
+    /* Soft gradient */
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    /* Light shadow for cards */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+    text-align: Left;
+}
+
+.portfolio-section-123 .widget-details .cardz:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Card Content */
+.portfolio-section-123 .widget-details .cardz .contentz {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.portfolio-section-123 .widget-details .cardz .titlez {
+    font-family: 'Eurostile', sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--red);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.portfolio-section-123 .widget-details .cardz .subtitlez {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--dark-gray);
+    border-bottom: 2px solid var(--red);
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+/* Root Variables */
+:root {
+    --red: #e7131d;
+    --dark-gray: #1A1B23;
+    --light-gray: #f9f9f9;
+    --border-gray: #ddd;
+    --green: #28a745;
+    --light-green: #e9f5e9;
+}
+.cardz {
+    display: flex;
+    flex-direction: column;
+    background: var(--light-gray);
+    padding: 1.5rem;
+    border: 1px solid var(--border-gray);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-section-123 .cardz .contentz {
+    flex: 1;
+}
+
+/* H2 Title Styling */
+.portfolio-section-123 .cardz .titlez {
+    font-family: 'Eurostile', sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--red);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+/* H3 Subtitle Styling */
+.portfolio-section-123 .cardz .subtitlez {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--dark-gray);
+    border-bottom: 2px solid var(--red);
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+/* Shared Text and List Styling */
+.cardz .contentz ul,
+.cardz .contentz p,
+.cardz .contentz li {
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+    color: var(--dark-gray);
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+.cardz .contentz ul {
+    padding-left: 1.5rem;
+}
+
+/* Strong Emphasis Styling */
+.cardz .contentz strong {
+    font-weight: bold;
+    color: var(--green);
+    background-color: var(--light-green);
+    padding: 0.1rem 0.3rem;
+    border-radius: 4px;
+}
+
+/* Button Styling */
+.slider-controlsz button {
+    margin: 0 0.5rem;
+}
+
+.button-red {
+    background-color: var(--red);
+    color: white;
+}
+
+.button-red:hover {
+    background-color: #c6240e;
+    /* Darker red */
+}
+
+Slider Styling */
+.widget-details .slider {
+    display: flex;
+    /* Arrange cards in a row */
+    flex-direction: row;
+    /* Horizontal layout for slides */
+    overflow-x: hidden;
+    /* Enable horizontal scrolling */
+    overflow-y: hidden;
+    /* Prevent vertical scrolling */
+    max-height: 650px;
+    /* Ensure enough height for readability */
+    gap: 1rem;
+    /* Add spacing between slides */
+    padding: 1.2rem;
+    /* Consistent padding inside the slider */
+    scroll-snap-type: x mandatory;
+    /* Enable snap scrolling */
+    border-radius: 8px;
+    background: linear-gradient(145deg, #e7131d, #ffffff);        /* Background for the slider */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    /* Subtle shadow */
+    border-left: 6px solid #8a8989;
+    border-right: 6px solid #8a8989;
+}
+/* Previous and Next Button Styling */
+.widget-details .slider-controls {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.5rem 0;
+    margin-top: 1rem;
+    position: relative;
+}
+
+/* Hide horizontal scrollbar */
+.widget-details .slider::-webkit-scrollbar {
+    display: none;
+}
+
+.widget-details h2 {
+    color: var(--red);
+    /* Reset to red */
+}
+
+.widget-details h3 {
+    color: var(--dark-gray);
+    /* Reset to dark gray */
+}
+/* =================================
+|       Responsive Adjustments      |
+================================= */
+@media (max-width: 1024px) {
+    .widget-details {
+        max-width: 100%;
+        padding: 1rem;
+    }
+
+    .slider {
+        max-height: 350px;
+    }
+
+    .title-primary {
+        font-size: 2rem;
+    }
+
+    .title-secondary {
+        font-size: 1.2rem;
+    }
+}
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .widget-container {
+        flex-wrap: wrap;
+        /* Allow wrapping */
+    }
+
+    .widget-preview,
+    .widget-details {
+        max-width: 100%;
+        min-height: auto;
+        /* Adjust height for smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .slider {
+        padding: 1rem;
+    }
+
+    .cardz {
+        padding: 1rem;
+    }
+
+    .title-primary {
+        font-size:
+    }
+}
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.5rem;
+        padding: 0 0.5rem;
+    }
+
+    .title-primary {
+        font-size: 2.8rem;
+    }
+
+    .title-secondary {
+        font-size: 1.5rem;
+    }
+}

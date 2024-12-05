@@ -1,0 +1,343 @@
+{
+  "asset": {
+    "copyright": "2020 (c) Adobe Inc.",
+    "generator": "Adobe Dimension - c07c1086882a7bcae137810da574e69379bf2af7",
+    "version": "2.0"
+  },
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 1850,
+      "type": "VEC3",
+      "max": [
+        0.009493250399827957,
+        0.009493250399827957,
+        0
+      ],
+      "min": [
+        -0.009493250399827957,
+        -0.009493250399827957,
+        -0.10955020040273666
+      ]
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 1850,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 1850,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5125,
+      "count": 5418,
+      "type": "SCALAR",
+      "max": [
+        1849
+      ],
+      "min": [
+        0
+      ]
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5126,
+      "count": 363,
+      "type": "VEC3",
+      "max": [
+        0.008069469593465328,
+        0.00515757966786623,
+        -0.10101892054080963
+      ],
+      "min": [
+        -0.008078919723629951,
+        -0.00515757966786623,
+        -0.10501429438591003
+      ]
+    },
+    {
+      "bufferView": 5,
+      "componentType": 5126,
+      "count": 363,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 6,
+      "componentType": 5126,
+      "count": 363,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 7,
+      "componentType": 5125,
+      "count": 1059,
+      "type": "SCALAR",
+      "max": [
+        362
+      ],
+      "min": [
+        0
+      ]
+    },
+    {
+      "bufferView": 8,
+      "componentType": 5126,
+      "count": 1202,
+      "type": "VEC3",
+      "max": [
+        0.01269999984651804,
+        0.01269999984651804,
+        -0.09697719663381577
+      ],
+      "min": [
+        -0.01269999984651804,
+        -0.01269999984651804,
+        -0.13334999978542328
+      ]
+    },
+    {
+      "bufferView": 9,
+      "componentType": 5126,
+      "count": 1202,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 10,
+      "componentType": 5126,
+      "count": 1202,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 11,
+      "componentType": 5125,
+      "count": 4044,
+      "type": "SCALAR",
+      "max": [
+        1201
+      ],
+      "min": [
+        0
+      ]
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteOffset": 0,
+      "byteLength": 22200,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 22200,
+      "byteLength": 22200,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 44400,
+      "byteLength": 14800,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 59200,
+      "byteLength": 21672,
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 80872,
+      "byteLength": 4356,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 85228,
+      "byteLength": 4356,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 89584,
+      "byteLength": 2904,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 92488,
+      "byteLength": 4236,
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 96724,
+      "byteLength": 14424,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 111148,
+      "byteLength": 14424,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 125572,
+      "byteLength": 9616,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 135188,
+      "byteLength": 16176,
+      "target": 34963
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 151364
+    }
+  ],
+  "cameras": [
+    {
+      "perspective": {
+        "znear": 0.000010000000656873453,
+        "yfov": 0.6024156808853149,
+        "zfar": 2,
+        "aspectRatio": 1.3333333730697632
+      },
+      "type": "perspective",
+      "name": "render_camera"
+    }
+  ],
+  "materials": [
+    {
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.6172069907188416,
+          0.6172069907188416,
+          0.6172069907188416,
+          1
+        ],
+        "roughnessFactor": 0.02199999988079071
+      },
+      "name": "Metal",
+      "doubleSided": true
+    }
+  ],
+  "meshes": [
+    {
+      "name": "(L)026892_268765_355070_DEFAULT",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TEXCOORD_0": 2
+          },
+          "indices": 3,
+          "material": 0
+        }
+      ]
+    },
+    {
+      "name": "(LCSP)_(HEAD)_M4_X_16mm_268765_355070_.1562_X_.375",
+      "primitives": [
+        {
+          "attributes": {
+            "TEXCOORD_0": 6,
+            "NORMAL": 5,
+            "POSITION": 4
+          },
+          "indices": 7,
+          "material": 0
+        }
+      ]
+    },
+    {
+      "name": "(LHD)_N-10300-6_268765_355070_B-TYPE(U)",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 8,
+            "NORMAL": 9,
+            "TEXCOORD_0": 10
+          },
+          "indices": 11,
+          "material": 0
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "translation": [
+        0.2300989031791687,
+        0.10627826303243637,
+        0.20963267982006073
+      ],
+      "rotation": [
+        -0.12059047073125839,
+        0.379409521818161,
+        0.04995020851492882,
+        0.9159756302833557
+      ],
+      "scale": [
+        1,
+        1,
+        0.9999999403953552
+      ],
+      "camera": 0,
+      "name": "render_camera_n3d"
+    },
+    {
+      "children": [
+        2,
+        3,
+        4
+      ],
+      "translation": [
+        0,
+        0.012698058970272541,
+        0.06667499244213104
+      ],
+      "rotation": [
+        0,
+        0,
+        0.14780940115451813,
+        0.9890158772468567
+      ],
+      "name": "Lower-.2500-3T"
+    },
+    {
+      "mesh": 0,
+      "name": "(L)026892_268765_355070_DEFAULT"
+    },
+    {
+      "mesh": 1,
+      "name": "(LCSP)_(HEAD)_M4_X_16mm_268765_355070_.1562_X_.375"
+    },
+    {
+      "mesh": 2,
+      "name": "(LHD)_N-10300-6_268765_355070_B-TYPE(U)"
+    }
+  ],
+  "scenes": [
+    {
+      "nodes": [
+        0,
+        1
+      ],
+      "name": "scene"
+    }
+  ],
+  "scene": 0
+}
+   

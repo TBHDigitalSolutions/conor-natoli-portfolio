@@ -1,0 +1,114 @@
+/* Global Section Styling */
+.portfolio-section {
+    padding: 2rem;
+    background: linear-gradient(to bottom, #ffffff, #f9f9f9);
+    color: #333;
+}
+
+/* Two-Column Layout */
+.widget-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+/* Left Column: Mini Interactive Preview */
+.widget-preview {
+    flex: 1;
+    max-width: 600px;
+}
+
+.mini-widget {
+    width: 100%;
+    height: 300px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Right Column: Project Details */
+.widget-details {
+    flex: 1;
+}
+
+.widget-details h2 {
+    font-family: "Eurostile Black", sans-serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.widget-details p {
+    font-family: "Roboto", sans-serif;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.widget-details ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1rem;
+}
+
+.widget-details ul li {
+    margin-bottom: 0.5rem;
+}
+
+.cta-button {
+    background: linear-gradient(to right, #e7131d, #707070);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+    background: linear-gradient(to right, #707070, #e7131d);
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.visible {
+    display: flex;
+}
+
+.modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    height: 90%;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.modal-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+}
+

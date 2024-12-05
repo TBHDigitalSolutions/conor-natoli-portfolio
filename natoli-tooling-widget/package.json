@@ -1,0 +1,21 @@
+{
+  "name": "natoli-beat-the-quote",
+  "version": "1.0.0",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/three": "^0.170.0",
+    "gltf-validator": "^2.0.0-dev.3.10",
+    "three": "^0.171.0",
+    "vite": "^6.0.1"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "description": ""
+}

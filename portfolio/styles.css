@@ -1,0 +1,617 @@
+/* =================================
+|      * Global Base Styles *       |
+================================= */
+
+/* Font Face Declarations */
+@font-face {
+    font-family: 'Aldrich';
+    src: url('../assets/path-to-fonts/aldrich-regular-webfont.woff2') format('woff2'),
+        url('../assets/path-to-fonts/aldrich-regular-webfont.woff') format('woff'),
+        url('../assets/path-to-fonts/Aldrich-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'SovjetBox';
+    src: url('../../assets/path-to-fonts/sovjetboxbd_v0_9-webfont.woff') format('woff'),
+        url('../../assets/path-to-fonts/SovjetBoxBd_v0_9.otf') format('opentype');
+}
+
+/* Reset Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Main Content Layout */
+main {
+    flex: 1;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #060512;
+    color: #f4f6f7;
+    line-height: 1.7;
+}
+/* Reset Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Main Content Layout */
+main {
+    flex: 1;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #060512;
+    color: #f4f6f7;
+    line-height: 1.7;
+}
+
+/* Section Styles */
+section {
+    width: 100%;
+    padding: 40px 0;
+    overflow-x: hidden;
+    border-bottom: 3px solid #0EAFFB;
+}
+
+/* Global Body Layout */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: 'Newsreader', serif;
+    font-size: 18px;
+    background-color: #060512;
+    color: #f4f6f7;
+    line-height: 1.8;
+}    
+/* Section Styles */
+section {
+    width: 100%;
+    padding: 40px 0;
+    overflow-x: hidden;
+    border-bottom: 3px solid #0EAFFB;
+}
+
+/* Global Body Layout */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: 'Newsreader', serif;
+    font-size: 18px;
+    background-color: #060512;
+    color: #f4f6f7;
+    line-height: 1.8;
+}
+
+.section-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Aldrich', sans-serif;
+    color: #0EAFFB;
+}
+
+h1 {
+    font-size: 42px;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 34px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 28px;
+    font-weight: 500;
+}
+
+/* ===========================
+|     * Hero Section Styles *    |
+=========================== */
+header {
+    width: 100%;
+}
+
+.hero {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+    background-color: #060512;
+}
+
+.hero video {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: block;
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #f4f6f7;
+    text-align: center;
+    padding: 40px;
+}
+
+.cta-button {
+    background-color: #0EAFFB;
+    color: #060512;
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.cta-button:hover {
+    background-color: #5AC8FA;
+    transform: translateY(-3px);
+}
+
+/* ===========================
+|  * Portfolio Section Styles *  |
+=========================== */
+.portfolio-section {
+    background: #07080D;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.portfolio-category {
+    margin-top: 30px;
+}
+
+.portfolio-carousel {
+    display: flex;
+    overflow-x: auto;
+    padding: 20px 0;
+    gap: 15px;
+    scroll-behavior: smooth;
+}
+
+.carousel-slide {
+    display: flex;
+    gap: 15px;
+}
+
+.portfolio-item {
+    background-color: #1A1B23;
+    color: #f4f6f7;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    flex-shrink: 0;
+    width: 200px;
+    position: relative;
+    text-align: center;
+}
+
+.portfolio-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.portfolio-thumbnail {
+    width: 100%;
+    height: auto;
+    border-bottom: 2px solid #0EAFFB;
+}
+
+.portfolio-item p {
+    padding: 15px;
+    font-size: 1rem;
+}
+
+/* ===========================
+|     * Modal Styles *       |
+=========================== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    overflow-y: auto;
+}
+
+.modal-content {
+    background-color: #1A1B23;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 800px;
+    width: 90%;
+    position: relative;
+    color: #f4f6f7;
+}
+
+.modal-content video,
+.modal-content iframe,
+.modal-content img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+    color: #f4f6f7;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover {
+    color: #5AC8FA;
+}
+
+/* ===========================
+|     * Card Hover Effect *  |
+=========================== */
+.hovered {
+    transform: scale(1.03);
+    transition: transform 0.3s ease;
+}
+
+/* ===========================
+|    * Contact Section *     |
+=========================== */
+.contact-section {
+    background: #060512;
+    color: #f4f6f7;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.contact-section p {
+    margin: 10px 0 30px;
+}
+
+.contact-section .cta-button {
+    font-size: 1.2rem;
+    padding: 15px 30px;
+}
+
+/* ===========================
+|     * Footer Styles *      |
+=========================== */
+footer {
+    background-color: #07080D;
+    padding: 20px;
+    text-align: center;
+    color: #f4f6f7;
+}
+
+footer nav a {
+    color: #0EAFFB;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 0.9rem;
+}
+
+footer nav a:hover {
+    color: #5AC8FA;
+}
+
+/* ===========================
+|     * Responsive Design *   |
+=========================== */
+@media (max-width: 768px) {
+    .hero-content {
+        padding: 20px;
+    }
+
+    .portfolio-carousel {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .portfolio-item {
+        width: 90%;
+    }
+
+    .cta-button {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+}
+/* Carousel & Portfolio Styles */
+.portfolio-category {
+    margin-bottom: 40px;
+}
+
+.portfolio-carousel {
+    display: flex;
+    overflow-x: scroll;
+    gap: 20px;
+}
+
+.carousel-slide {
+    display: flex;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item {
+    width: 200px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.portfolio-thumbnail {
+    width: 100%;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover .portfolio-thumbnail {
+    transform: scale(1.05);
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+    padding: 20px;
+    background: #000;
+    border-radius: 8px;
+}
+
+.modal-video,
+.modal-image,
+.modal-iframe {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+}
+/* Base Styles */
+body {
+    font-family: 'Newsreader', serif;
+    background-color: #060512;
+    color: #f4f6f7;
+    margin: 0;
+    line-height: 1.8;
+}
+
+h1,
+h2,
+h3 {
+    color: #0EAFFB;
+}
+
+.cta-button {
+    background-color: #0EAFFB;
+    color: #060512;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #5AC8FA;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    text-align: center;
+    color: #fff;
+    padding: 60px 20px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1,
+.hero h2 {
+    margin: 0;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+}
+
+/* Resume Preview */
+.resume-preview-section,
+.skills-section,
+.portfolio-section,
+.contact-section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.iframe-container {
+    border: 2px solid #0EAFFB;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.small-iframe {
+    width: 100%;
+    height: 200px;
+    border: none;
+}
+
+/* Skills Section */
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.skills-list li {
+    background-color: #1B1B1F;
+    color: #0EAFFB;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Portfolio Section */
+.portfolio-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.portfolio-item {
+    width: 30%;
+}
+
+.portfolio-video {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* Contact Section */
+.contact-section p {
+    color: #f4f6f7;
+}
+
+/* Footer */
+footer {
+    background-color: #060512;
+    color: #f4f6f7;
+    padding: 20px;
+    text-align: center;
+}
+
+footer nav a {
+    color: #0EAFFB;
+    margin: 0 5px;
+    text-decoration: none;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .portfolio-item {
+        width: 100%;
+    }
+}
+/* Portfolio Carousel */
+.portfolio-carousel {
+    display: flex;
+    overflow-x: scroll;
+    gap: 20px;
+}
+
+.carousel-slide {
+    display: flex;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item {
+    width: 200px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.portfolio-thumbnail {
+    width: 100%;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover .portfolio-thumbnail {
+    transform: scale(1.05);
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    position: relative;
+    width: 80%;
+    max-width: 700px;
+    padding: 20px;
+    background: #000;
+    border-radius: 8px;
+}
+
+.modal-video {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+}

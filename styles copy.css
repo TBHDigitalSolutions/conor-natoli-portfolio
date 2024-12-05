@@ -1,0 +1,322 @@
+/* =================================
+|      * Global Base Styles *       |
+================================= */
+
+/* Font Face Declarations */
+@font-face {
+    font-family: 'Aldrich';
+    src: url('path-to-fonts/aldrich-regular-webfont.woff2') format('woff2'),
+        url('path-to-fonts/aldrich-regular-webfont.woff') format('woff'),
+        url('path-to-fonts/Aldrich-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SovjetBoxBold';
+    src: url('path-to-fonts/sovjetboxbd_v0_9-webfont.woff') format('woff'),
+        url('path-to-fonts/SovjetBoxBd_v0_9.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SovjetBoxSC';
+    src: url('path-to-fonts/sovjetboxsc_v0_9-webfont.woff') format('woff'),
+        url('path-to-fonts/SovjetBoxSC_v0_9.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Reset Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global Body Layout */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: 'Newsreader', serif;
+    font-size: 1rem;
+    background-color: #060512;
+    color: #f4f6f7;
+    line-height: 1.8;
+}
+
+/* Main Content Layout */
+main {
+    flex: 1;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #060512;
+    color: #f4f6f7;
+    line-height: 1.7;
+}
+
+/* ===========================
+   * Hero Section Adjustments *   
+=========================== */
+
+.hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f4f6f7;
+    background-color: #060512;
+    overflow: hidden;
+    height: 60vh;
+    width: 100%;
+    text-align: center;
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 20px;
+    z-index: 2;
+}
+
+/* Hero Title Styles */
+.hero-title {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #f4f6f7;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7);
+    margin: 10px 0 12px;
+    line-height: 1.2;
+    white-space: nowrap;
+    /* Ensures title stays on one line */
+}
+
+/* Hero Subtitle Styles */
+.hero-subtitle {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #f4f6f7;
+    margin: 10px 0 20px;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.hero-subtitle::after {
+    content: " ";
+    display: block;
+}
+
+/* Button in Hero Section */
+.hero-button {
+    font-family: 'Aldrich', sans-serif;
+    font-size: 1rem;
+    padding: 12px 25px;
+    color: #f4f6f7;
+    background-color: #0EAFFB;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+    margin: 10px 5px;
+}
+
+.hero-button:hover {
+    background-color: #f4f6f7;
+    color: #0B0A18;
+    transform: translateY(-3px);
+}
+
+
+/* General Section Styling */
+section {
+    padding: 60px 20px;
+    border-bottom: 3px solid #0EAFFB;
+    text-align: center;
+}
+
+/* Skills Section */
+.skills-section {
+    background-color: #1A1B23;
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.skills-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+.skills-list li {
+    background-color: #0B0A18;
+    color: #0EAFFB;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: 'Newsreader', serif;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.skills-list li:hover {
+    background-color: #f4f6f7;
+    color: #0B0A18;
+    transform: translateY(-3px);
+}
+
+/* Contact Section */
+.contact-section {
+    background-color: #1C1B1F;
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#contact {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding: 40px;
+    background-color: #1C1B1F;
+    margin-bottom: 20px;
+}
+
+.contact-left,
+.contact-right {
+    flex: 1 1 45%;
+    max-width: 500px;
+}
+
+.contact-left img {
+    max-width: 100%;
+    transition: transform 0.3s ease;
+    opacity: 0.85;
+}
+
+.contact-left img:hover {
+    transform: scale(1.05);
+}
+
+/* Card Container Styling */
+.contact-right .card-container {
+    background-color: #0B0A18;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+}
+
+.card-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card-content h2 {
+    font-size: 1.75rem;
+    font-family: 'Aldrich', sans-serif;
+    font-weight: 600;
+    color: #f4f6f7;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #0EAFFB;
+    padding-bottom: 10px;
+}
+
+.card-content p {
+    font-size: 1rem;
+    font-family: 'Newsreader', serif;
+    color: #c9ced1;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* CTA Button */
+.cta-button {
+    font-family: 'Aldrich', sans-serif;
+    font-size: 1rem;
+    padding: 12px 25px;
+    color: #f4f6f7;
+    background-color: #0EAFFB;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s;
+}
+
+.cta-button:hover {
+    background-color: #f4f6f7;
+    color: #0B0A18;
+    transform: translateY(-3px);
+}
+
+/* Footer */
+footer.deep-navy-gradient {
+    background: linear-gradient(180deg, #060512, #0E1730);
+    color: #f4f6f7;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+footer p {
+    color: #c9ced1;
+    font-size: 1rem;
+    font-family: 'Newsreader', serif;
+    line-height: 1.6;
+}
+
+footer a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #0EAFFB;
+}
+
+footer nav {
+    font-size: 1rem;
+    font-family: 'Aldrich', sans-serif;
+    max-width: 770px;
+    margin: 10px auto;
+    line-height: 1.2;
+}
+
+footer nav a {
+    color: #0EAFFB;
+    text-decoration: none;
+    margin: 0 8px;
+    transition: color 0.3s ease;
+}
+
+footer nav a:hover {
+    color: #f4f6f7;
+    text-decoration: underline;
+}

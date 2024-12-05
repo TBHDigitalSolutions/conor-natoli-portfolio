@@ -1,0 +1,597 @@
+/* Import Natoli Fonts */
+/* Import Roboto Fonts */
+@font-face {
+    font-family: "Roboto";
+    src: url("assets/fonts/roboto/Roboto-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Roboto Bold";
+    src: url("assets/fonts/roboto/Roboto-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Roboto Italic";
+    src: url("assets/fonts/roboto/Roboto-Italic.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Eurostile";
+    src: url("assets/fonts/eurostile/eurostile.TTF") format("truetype");
+}
+
+@font-face {
+    font-family: "Eurostile Black";
+    src: url("assets/fonts/eurostile/eurostile.TTF") format("truetype");
+}
+
+/* Global Styles */
+body {
+    font-family: "Roboto Bold", sans-serif;
+    margin: auto;
+    padding: auto;
+    background: linear-gradient(to bottom, #ffffff, #70707336);
+    background-size: auto 1200px;
+    color: #000;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    flex-direction: column;
+    justify-content: auto;
+}
+
+/* Main Container: Flexbox Layout */
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline-position;
+    gap: 3%;
+    max-width: 1200px;
+    min-height: 600px;
+    margin: auto;
+    bottom-margin: 15rem;
+    justify-content: center;
+    padding: 5.5rem;
+    height: fit-content;
+}
+
+/* Left Container: Image Viewer */
+.left-container {
+    flex: 0 0 50%;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    border-left: 6px solid #8d8d8d;
+    border-right: 6px solid #8d8d8d;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect for Left Container */
+.left-container:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Right Container: Multi-Step Form */
+.right-container {
+    flex: 0 0 50%;
+    /* Set consistent width */
+    background: white;
+    /* White background */
+    padding: 2rem;
+    /* Increased padding for better spacing */
+    margin: auto;
+    border-radius: 12px;
+    /* Rounded corners */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    /* Shadow effect */
+    border-left: 6px solid #e7131d;
+    /* Left border for styling */
+    border-right: 6px solid #e7131d;
+    /* Right border for styling */
+    display: flex;
+    /* Flexbox for layout */
+    flex-direction: column;
+    /* Stack items vertically */
+    justify-content: flex-start;
+    /* Align items to the top */
+    align-items: stretch;
+    /* Stretch items to fill width */
+    text-align: left;
+    /* Left-align text for consistency */
+    height: auto;
+    /* Adjust height dynamically */
+    box-sizing: border-box;
+    /* Include padding in width/height calculations */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Smooth transitions */
+}
+
+/* Hover Effect for Right Container */
+.right-container:hover {
+    transform: scale(1.07);
+    /* Slightly enlarge on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    /* Enhanced shadow on hover */
+}
+
+/* Model Viewer */
+model-viewer {
+    width: 100%;
+    height: 500px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect for Model Viewer */
+model-viewer:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Campaign Header */
+.campaign-header {
+    text-align: center;
+    background: linear-gradient(120deg, #e7131d, #1d1c1c);
+    background-size: 300% 300%;
+    /* Create a more dynamic gradient */
+    animation: gradient-animation 6s ease infinite;
+    /* Animate the gradient */
+    color: white;
+    padding: 2.3rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-bottom: 8px solid #505050;
+    position: relative;
+    overflow: hidden;
+    /* To hide decorative elements */
+}
+
+/* Animated Gradient Background */
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Header Decorative Lines */
+.campaign-header::before,
+.campaign-header::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, #ffffff, #e7131d, #a7a2a2, #ffffff);
+    animation: decorative-line-animation 3s linear infinite;
+}
+
+.campaign-header::before {
+    top: 0;
+    left: 0;
+}
+
+.campaign-header::after {
+    bottom: 0;
+    left: 0;
+}
+
+/* Decorative Line Animation */
+@keyframes decorative-line-animation {
+    0% {
+        background-position: 0%;
+    }
+
+    100% {
+        background-position: 100%;
+    }
+}
+
+/* Header H1 */
+.campaign-header h1 {
+    font-family: "Eurostile Black", sans-serif;
+    font-size: 3.5rem;
+    margin: 0;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.4);
+    /* Add depth */
+    animation: fade-in 2s ease-in-out;
+    /* Fade-in effect */
+}
+
+/* Header Paragraph */
+.campaign-header p {
+    font-family: "Roboto", sans-serif;
+    font-size: 1.3rem;
+    margin-top: 1.5rem;
+    color: #f8f8f8;
+    line-height: 1.6;
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: fade-in 2s ease-in-out 0.5s;
+    /* Delayed fade-in */
+}
+
+/* Hover Effect for Text */
+.campaign-header h1:hover,
+.campaign-header p:hover {
+    transform: scale(1.05);
+    /* Subtle zoom on hover */
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Fade-In Animation */
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Model Viewer Styling */
+model-viewer {
+    width: 100%;
+    height: 450px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+/* AR Button Styling */
+#ar-button {
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(to right, #e7131d, #707070);
+    color: white;
+    border-radius: 8px;
+    border: none;
+    font-family: "Eurostile Black", sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+}
+#ar-button:hover {
+    background: linear-gradient(to right, #707070, #e7131d);
+}
+/* AR Prompt */
+#ar-prompt {
+    display: none;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 6px;
+}
+#ar-prompt img {
+    width: 24px;
+    height: 24px;
+    margin-right: 0.5rem;
+}
+.progress-bar-2 {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.progress-bar hide-2 {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.update-bar {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* General Styling for Form Steps */
+.form-step {
+    display: none;
+    /* Hide steps by default */
+    text-align: left;
+    /* Align text to the left */
+    width: 100%;
+    /* Ensure full width */
+    padding: 2rem;
+    /* Consistent padding for all steps */
+    box-sizing: border-box;
+    /* Include padding in width calculation */
+    animation: fade-in 0.6s ease-out;
+    /* Add animation for better UX */
+}
+
+.form-step.active {
+    display: block;
+    /* Show the active step */
+    opacity: 1;
+    /* Ensure visibility */
+    position: relative;
+    transform: translateX(0);
+}
+
+/* Labels */
+label {
+    display: block;
+    /* Make labels block elements */
+    font-family: "Acumin Pro", sans-serif;
+    /* Consistent font family */
+    font-size: 1rem;
+    /* Consistent font size */
+    font-weight: bold;
+    /* Bold for emphasis */
+    color: #000;
+    /* Black color for labels */
+    margin-bottom: 0.5rem;
+    /* Space below labels */
+    text-align: left;
+    /* Left-align text */
+}
+
+/* Input, Select, and Textarea */
+input,
+select,
+textarea {
+    width: calc(100% - 2rem);
+    /* Consistent width with padding */
+    margin: 0 1rem 1.5rem 1rem;
+    /* Even margin on all sides */
+    padding: 0.75rem;
+    /* Consistent padding */
+    font-family: "Acumin Pro", sans-serif;
+    /* Consistent font */
+    font-size: 1rem;
+    /* Standard font size */
+    border: 2px solid #707070;
+    /* Uniform border style */
+    border-radius: 6px;
+    /* Rounded corners */
+    box-sizing: border-box;
+    /* Include padding in width */
+    transition: all 0.3s ease;
+    /* Smooth transitions */
+}
+
+textarea {
+    resize: none;
+    /* Prevent resizing */
+}
+
+/* Input, Select, and Textarea Focus */
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    /* Remove default outline */
+    border-color: #e7131d;
+    /* Highlighted border color */
+    box-shadow: 0 0 10px rgba(231, 19, 29, 0.5);
+    /* Subtle shadow effect */
+}
+
+/* Progress Bar */
+.progress-bar {
+    width: 100%;
+    /* Full width */
+    height: 10px;
+    /* Fixed height */
+    background: #e0e0e0;
+    /* Light gray background */
+    border-radius: 5px;
+    /* Rounded corners */
+    margin: 1rem auto;
+    /* Center align and spacing */
+    max-width: 480px;
+    /* Align progress bar with input fields */
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-bar .progress {
+    height: 100%;
+    /* Full height */
+    width: 0%;
+    /* Start at 0% */
+    background: linear-gradient(to right, #e7131d, #707070);
+    /* Gradient effect */
+    transition: width 0.4s ease-in-out;
+    /* Smooth progress animation */
+}
+
+/* Step Headers (h2) */
+h2 {
+    font-family: "Eurostile", sans-serif;
+    /* Consistent header font */
+    font-size: 1.9rem;
+    /* Standardized font size */
+    font-weight: bold;
+    /* Emphasize headers */
+    color: #e7131d;
+    /* Red color for branding */
+    margin-bottom: 1rem;
+    /* Spacing below headers */
+    text-transform: uppercase;
+    /* Consistent styling */
+    text-align: left;
+    /* Align headers to the left */
+}
+
+.p {
+    font-family: "Roboto", sans-serif;   
+    font-size: 1.3rem;
+    /* Standardized font size for body text */
+    font-weight: 400;
+    /* Normal font weight for readability */
+    color: #000;
+    /* Black color for contrast */
+    line-height: 1.6;
+    /* Comfortable line spacing for readability */
+    margin-bottom: 1rem;
+    /* Space below each paragraph */
+    text-align: left;
+    /* Left-aligned text for consistency */
+}
+/* Button Containers */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    /* Align buttons to opposite sides */
+    align-items: center;
+    margin-top: 1.5rem;
+    /* Space above buttons */
+}
+
+.button-container .info-text {
+    flex: 1;
+    text-align: center;
+    /* Center align info text */
+    font-size: 1rem;
+    /* Standard font size */
+    font-family: "Acumin Pro", sans-serif;
+    color: #555;
+    /* Gray for less emphasis */
+}
+
+.centered-button {
+    display: flex;
+    justify-content: center;
+    /* Center the button */
+    margin-top: 2rem;
+    /* Space above */
+}
+
+/* General Button Styles */
+button {
+    font-family: "Eurostile Black", sans-serif;
+    /* Button font */
+    font-size: 1.2rem;
+    /* Button font size */
+    background: linear-gradient(to right, #e7131d, #707070);
+    /* Gradient background */
+    color: white;
+    /* White text */
+    padding: 0.8rem 1.9rem;
+    /* Padding for buttons */
+    border: none;
+    /* Remove default border */
+    border-radius: 6px;
+    /* Rounded corners */
+    transition: all 0.3s ease;
+    /* Smooth transitions */
+}
+
+button:hover {
+    background: linear-gradient(to right, #707070, #e7131d);
+    /* Inverted gradient */
+    box-shadow: 0 6px 15px rgba(231, 19, 29, 0.3);
+    /* Hover effect */
+}
+
+/* Tooltip Styles */
+.tooltip-text {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    z-index: 1000;
+    pointer-events: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    animation: fade-in 0.2s ease;
+}
+
+.tooltip-text:after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent;
+}
+
+/* Keyframe Animations */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .main-container {
+        flex-direction: column;
+        /* Stack left and right containers vertically */
+        gap: 2rem;
+        padding: 1.5rem;
+    }
+
+    .main-content,
+    .left-container,
+    .right-container {
+        max-width: 100%;
+        /* Allow full width for smaller screens */
+        flex: 1 1 100%;
+        /* Stack content */
+    }
+}
+
+@media (max-width: 768px) {
+
+    .main-container,
+    .main-content {
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .left-container model-viewer,
+    model-viewer {
+        height: 300px;
+        /* Adjust height for smaller screens */
+    }
+
+    .campaign-header h1 {
+        font-size: 2rem;
+        letter-spacing: 1px;
+    }
+
+    .campaign-header p {
+        font-size: 1rem;
+    }
+
+    label {
+        font-size: 0.9rem;
+    }
+
+    input,
+    select,
+    textarea {
+        font-size: 0.9rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+}

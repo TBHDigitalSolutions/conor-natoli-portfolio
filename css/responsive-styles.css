@@ -1,0 +1,350 @@
+/* ===========================
+   * Global Responsive Adjustments *   
+=========================== */
+
+/* General Typography and Body Adjustments */
+@media (max-width: 1024px) {
+    body {
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 3.5vw;
+        font-family: 'Aldrich', sans-serif;
+        font-weight: 700;
+    }
+
+    h2 {
+        font-size: 3vw;
+        font-family: 'Aldrich', sans-serif;
+        font-weight: 600;
+    }
+
+    h3 {
+        font-size: 2vw;
+        font-family: 'Aldrich', sans-serif;
+        font-weight: 500;
+    }
+
+    p {
+        font-size: 1rem;
+        font-family: 'Newsreader', serif;
+        font-weight: 400;
+    }
+    .skills-section,
+    .contact-section,
+    .portfolio-section {
+        padding: 40px 15px;
+    }
+
+    footer nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 3vw;
+    }
+
+    h2 {
+        font-size: 5vw;
+    }
+
+    h3 {
+        font-size: 2vw;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+
+    .skills-section,
+    .contact-section,
+    .portfolio-section {
+        padding: 30px 10px;
+    }
+
+    .skills-list li {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+
+    .portfolio-card {
+        padding: 10px;
+        max-width: 100%;
+        margin-top: 20px;
+    }
+
+    .portfolio-thumbnail {
+        width: 120px;
+        height: 100px;
+    }
+
+    .contact-left,
+    .contact-right,
+    .resume-about-container__about,
+    .resume-about-container__resume-preview {
+        flex: 1 1 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 12px;
+    }
+
+    h1 {
+        font-size: 2.5vw;
+    }
+
+    h2 {
+        font-size: 5vw;
+    }
+
+    h3 {
+        font-size: 1.5vw;
+    }
+
+    p {
+        font-size: 0.85rem;
+    }
+    .skills-section,
+    .contact-section,
+    .portfolio-section {
+        padding: 20px 5px;
+    }
+
+    .skills-list li {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+
+    .logo {
+        width: 80px;
+    }
+
+    footer p,
+    footer nav {
+        font-size: 14px;
+    }
+}
+
+/* ===========================
+   * Section Specific Adjustments *   
+=========================== */
+
+/* Resume Section */
+@media (max-width: 1024px) {
+    .resume-about-container {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .resume-iframe-wrapper {
+        height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .resume-iframe-wrapper {
+        height: 250px;
+    }
+
+    .resume-modal__iframe {
+        height: 70vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .resume-iframe-wrapper {
+        height: 200px;
+    }
+
+    .resume-modal__iframe {
+        height: 60vh;
+    }
+}
+
+/* ===========================
+   * Responsive Button Styles *
+=========================== */
+
+/* Base Button Style */
+.button {
+    font-family: 'Aldrich', sans-serif;
+    font-size: 16px;
+    padding: 12px 25px;
+    color: #f4f6f7;
+    background-color: #0EAFFB;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+    display: inline-block;
+    text-align: center;
+}
+
+/* Button Hover Effect */
+.button:hover {
+    background-color: #f4f6f7;
+    color: #0B0A18;
+    transform: translateY(-3px);
+}
+
+/* Specific Button Classes */
+.cta-button {
+    font-size: 16px;
+}
+
+.hero-button {
+    font-size: 16px;
+    padding: 12px 30px;
+}
+
+.contact-button {
+    font-size: 16px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+
+    .cta-button,
+    .hero-button,
+    .contact-button {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .cta-button,
+    .hero-button,
+    .contact-button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .cta-button,
+    .hero-button,
+    .contact-button {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+}
+
+/* Additional Button Spacing for Consistency */
+.hero-button,
+.contact-button {
+    margin: 10px 0;
+}
+
+/* Responsive Contact Section */
+@media (max-width: 768px) {
+    #contact {
+        padding: 30px;
+        gap: 20px;
+    }
+
+    .contact-left,
+    .contact-right {
+        max-width: 90%;
+    }
+
+    .card-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .card-content p {
+        font-size: 0.95rem;
+    }
+
+    .cta-button {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    #contact {
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .contact-left img {
+        max-width: 80%;
+        margin: 0 auto;
+    }
+
+    .card-content h2 {
+        font-size: 1.25rem;
+    }
+
+    .card-content p {
+        font-size: 0.85rem;
+    }
+
+    .cta-button {
+        font-size: 0.85rem;
+        padding: 8px 16px;
+    }
+}
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero {
+        height: 40vh;
+    }
+
+    .hero-title {
+        font-size: 5vw;
+    }
+
+    .hero-subtitle {
+        font-size: 4vw;
+    }
+
+    .cta-button {
+        font-size: 3vw;
+        width: 70%;
+        margin: 5px auto;
+        padding: 10px 0;
+        display: block;
+        white-space: normal;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        height: 35vh;
+    }
+
+    .hero-title {
+        font-size: 6vw;
+    }
+
+    .hero-subtitle {
+        font-size: 4.5vw;
+        line-height: 1.3;
+    }
+
+    .cta-button {
+        font-size: 3vw;
+        width: 70%;
+        margin: 5px auto;
+        padding: 8px 0;
+        display: block;
+        white-space: normal;
+    }
+}
