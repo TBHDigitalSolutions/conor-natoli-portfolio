@@ -369,12 +369,8 @@ section {
     width: 100%;
     max-width: 300px;
     text-align: center;
-    transition: transform 0.3s;
 }
 
-.portfolio-card:hover {
-    transform: translateY(-3px);
-}
 /* Carousel Styles */
 .carousel-slide {
     display: flex;
@@ -385,8 +381,6 @@ section {
     max-width: 100%;
     overflow: hidden;
     margin: 0 auto;
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;
 }
 
 .portfolio-item {
@@ -394,7 +388,6 @@ section {
     background-color: #1A1B23;
     border-radius: 10px;
     text-align: center;
-    transition: transform 0.3s;
     padding: 7px 7px;
     cursor: pointer;
     flex: 0 0 auto;

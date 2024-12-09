@@ -355,8 +355,6 @@ h6 {
 .widget-details .sliderz {
     display: flex;
     flex-direction: row;
-    overflow-x: hidden;
-    scroll-snap-type: x mandatory;
     gap: 1rem;
     padding: 1rem;
     border-radius: 8px;
@@ -457,9 +455,6 @@ h6 {
 .sliderz {
     display: flex;
     flex-direction: row;
-    overflow-x: auto;
-    /* Ensure horizontal scrolling */
-    scroll-snap-type: x mandatory;
     gap: 1rem;
     padding: 1rem;
     border-radius: 12px;
@@ -471,12 +466,116 @@ h6 {
     min-height: auto;
     /* Ensure full slider height */
 }
-
+.sliderz {
+    overflow-x: hidden;
+    /* Disable native scrolling */
+    scroll-behavior: smooth;
+    /* Smooth programmatic scroll */
+}
+.sliderz {
+    gap: 0;
+    /* Remove gaps to align slides perfectly */
+    justify-content: space-between;
+    /* Space cards evenly */
+}
 .sliderz::-webkit-scrollbar {
     display: none;
     /* Hide horizontal scrollbar */
 }
+.slider-controlsz button {
+    padding: 0.5rem 1rem;
+    /* Adjust padding for smaller buttons */
+    font-size: 1rem;
+    /* Keep font size readable */
+}
+.sliderz::-webkit-scrollbar {
+    display: block;
+    height: 5px;
+    /* Keep it subtle */
+    background: #ddd;
+}
+.sliderz {
+    align-items: center;
+    height: auto;
+    /* Ensure height adapts to content */
+}
+@media (max-width: 1024px) {
+    .sliderz .cardz {
+        flex: 0 0 calc(100% / 2 - 1rem);
+        /* Show 2 cards */
+    }
+}
 
+@media (max-width: 768px) {
+    .sliderz .cardz {
+        flex: 0 0 100%;
+        /* Show 1 card */
+    }
+}
+.modal.visible {
+    z-index: 9999;
+    /* Ensure modals are above sliders */
+}
+
+.sliderz {
+    z-index: 1;
+    /* Ensure sliders remain interactive */
+}
+.cardz {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Lighter shadow */
+}
+/* Slider Styling */
+.sliderz {
+    display: flex;
+    gap: 0;
+    /* Ensure no extra gaps */
+    padding: 1rem 0;
+    overflow: hidden;
+    /* Prevent native scroll interference */
+    justify-content: space-between;
+    align-items: center;
+    /* Align cards consistently */
+    scroll-behavior: smooth;
+    /* Smooth scrolling */
+}
+
+/* Individual Card Styling */
+.sliderz .cardz {
+    flex: 0 0 calc(100% / 3 - 1rem);
+    /* Show 3 cards per view */
+    max-width: 400px;
+    background: var(--light-gray);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Lighter shadow */
+    transition: transform 0.3s ease;
+    will-change: transform;
+    /* Optimize hover effects */
+}
+
+/* Media Query Adjustments */
+@media (max-width: 1024px) {
+    .sliderz .cardz {
+        flex: 0 0 calc(100% / 2 - 1rem);
+        /* Show 2 cards */
+    }
+}
+
+@media (max-width: 768px) {
+    .sliderz .cardz {
+        flex: 0 0 100%;
+        /* Show 1 card */
+    }
+}
+
+/* Button Styling */
+.slider-controlsz button {
+    padding: 0.5rem 1rem;
+    /* Consistent padding */
+    font-size: 1rem;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
 /* Individual Cards in Slider */
 .sliderz .cardz {
     flex: 0 0 90%;
@@ -503,6 +602,9 @@ h6 {
     transform: translateY(-5px);
     /* Hover effect to lift card */
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+.cardz:hover {
+    will-change: transform, box-shadow;
 }
 
 
